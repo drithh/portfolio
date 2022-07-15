@@ -19,7 +19,7 @@ function App() {
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col ">
           <Navbar theme={theme} setTheme={setTheme} />
           <div className="flex flex-col gap-8 px-4">
-            <div id="about" className="texet">
+            <div id="about" className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
@@ -46,7 +46,7 @@ function App() {
               accusantium blanditiis. Quas dolore commodi non hic!
             </div>
 
-            <div className="texet">
+            <div className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
@@ -73,7 +73,7 @@ function App() {
               accusantium blanditiis. Quas dolore commodi non hic!
             </div>
 
-            <div id="experience" className="texet">
+            <div id="experience" className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
@@ -100,7 +100,7 @@ function App() {
               accusantium blanditiis. Quas dolore commodi non hic!
             </div>
 
-            <div id="project" className="texet">
+            <div id="project" className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
@@ -127,7 +127,7 @@ function App() {
               accusantium blanditiis. Quas dolore commodi non hic!
             </div>
 
-            <div id="project" className="texet">
+            <div id="project" className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
@@ -154,7 +154,7 @@ function App() {
               accusantium blanditiis. Quas dolore commodi non hic!
             </div>
 
-            <div id="contact" className="texet">
+            <div id="contact" className="text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
               dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
