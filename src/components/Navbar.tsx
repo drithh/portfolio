@@ -42,7 +42,7 @@ export const Navbar = (props: {
           );
         })}
       </div>
-      <div className="hidden pr-6 sm:block lg:pr-0">
+      <div className="hidden pr-2 sm:block lg:pr-0">
         <DarkModeSwitch
           checked={theme === 'dark'}
           onChange={toggleDarkMode}
