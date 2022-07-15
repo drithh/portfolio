@@ -10,14 +10,17 @@ module.exports = {
           link: '#4432ff',
         },
         dark: {
-          background: '#161B22',
+          background: '#161717',
           text: '#f0f6fc',
           link: '#4432ff',
         },
       },
       fontFamily: {
         sans: ['GT Walsheim', 'sans-serif'],
-        title: ['MADE Kenfolg', 'sans-serif'],
+        title: ['Inter', 'sans-serif'],
+      },
+      screens: {
+        ty: '400px',
       },
     },
   },
