@@ -16,22 +16,22 @@ export const Background = () => {
 
 const BackgroundTiny = () => {
   const { scrollYProgress } = useViewportScroll();
-  const top = useTransform(scrollYProgress, [0, 0.01], ['3.3rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
   return (
     <motion.div
       style={{ top }}
-      className="fixed inset-0   -z-10 mx-auto h-[2.75rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      className="fixed inset-0 -z-10 mx-auto h-[2.75rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };
 
 const BackgroundSmall = () => {
   const { scrollYProgress } = useViewportScroll();
-  const top = useTransform(scrollYProgress, [0, 0.01], ['3.3rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
   return (
     <motion.div
       style={{ top }}
-      className="fixed inset-0   -z-10 mx-auto h-[3rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      className="fixed inset-0 -z-10 mx-auto h-[3rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };

@@ -45,6 +45,11 @@ export const Navbar = (props: {
           const top = element.getBoundingClientRect().top;
 
           if (top > 0 && top < 150) {
+            // get client window width
+            const width = window.innerWidth;
+            if (width <= 400 && element.id === 'experience') {
+              return;
+            }
             setSelected(element.id);
           } else if (element.id === 'contact' && top < 600) {
             setSelected(element.id);
