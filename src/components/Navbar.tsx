@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Item } from './Item';
+import { Background } from './Background';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
-import useWindowDimensions from '../utils/WindowDimensions';
+// import { useViewportScroll } from 'framer-motion';
+
 const text = ['about', 'experience', 'project', 'contact'];
 
 export const Navbar = (props: {
@@ -9,20 +11,51 @@ export const Navbar = (props: {
   setTheme: React.Dispatch<React.SetStateAction<string>>;
 }) => {
   const { theme, setTheme } = props;
+
   const toggleDarkMode = (checked: boolean) => {
     setTheme(checked ? 'dark' : 'light');
   };
 
   const [selected, setSelected] = useState(text[0]);
-  useEffect(() => {
-    const element = document.querySelector(`#${selected}`);
+  const scrollPosition = (item: string) => {
+    const element = document.querySelector(`#${item}`);
     if (element) {
-      element.scrollIntoView({
+      const offset = 100;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
         behavior: 'smooth',
-        block: 'center',
       });
     }
-  }, [selected]);
+    // setSelected(item);
+  };
+
+  useEffect(() => {
+    const onScroll = () => {
+      const elements = document.querySelectorAll(`.section`);
+
+      // get element that closest to scrollTop
+
+      if (elements) {
+        elements.forEach((element) => {
+          // const id = element.id;
+          const top = element.getBoundingClientRect().top;
+
+          if (top > 0 && top < 150) {
+            setSelected(element.id);
+          } else if (element.id === 'contact' && top < 600) {
+            setSelected(element.id);
+          }
+        });
+      }
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <nav className="sticky top-2 my-12 flex h-fit w-full items-center justify-center py-2 sm:justify-between ty:px-4">
       <div className="profile hidden lg:block">
@@ -37,7 +70,7 @@ export const Navbar = (props: {
               key={index}
               item={item}
               isSelected={selected === item}
-              onClick={() => setSelected(item)}
+              onClick={() => scrollPosition(item)}
             />
           );
         })}
@@ -53,111 +86,4 @@ export const Navbar = (props: {
       </div>
     </nav>
   );
-};
-
-const Background = () => {
-  const { width } = useWindowDimensions();
-  console.log(width);
-  if (width > 1024) {
-    return <BackgroundLarge />;
-  } else if (width > 640) {
-    return <BackgroundMedium />;
-  } else if (width > 400) {
-    return <BackgroundSmall />;
-  } else {
-    return <BackgroundTiny />;
-  }
-};
-
-const BackgroundTiny = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const top = useTransform(scrollYProgress, [0, 0.01], ['3.3rem', '0.75rem']);
-  return (
-    <motion.div
-      style={{ top }}
-      className="fixed inset-0   -z-10 mx-auto h-[2.75rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
-    ></motion.div>
-  );
-};
-
-const BackgroundSmall = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const top = useTransform(scrollYProgress, [0, 0.01], ['3.3rem', '0.75rem']);
-  return (
-    <motion.div
-      style={{ top }}
-      className="fixed inset-0   -z-10 mx-auto h-[3rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
-    ></motion.div>
-  );
-};
-
-const BackgroundMedium = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const width = useTransform(scrollYProgress, [0, 0.1], ['40vw', '93.5vw']);
-  const height = useTransform(scrollYProgress, [0, 0.1], ['100%', '115%']);
-  const top = useTransform(scrollYProgress, [0, 0.1], ['0%', '-7.5%']);
-  return (
-    <motion.div
-      style={{ width, height, top }}
-      className="absolute inset-0 -z-10 mx-auto max-h-[4rem] min-w-full max-w-[95vw] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
-    ></motion.div>
-  );
-};
-
-const BackgroundLarge = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const width = useTransform(scrollYProgress, [0, 0.1], ['100%', '254%']);
-  const height = useTransform(scrollYProgress, [0, 0.1], ['100%', '145%']);
-  const left = useTransform(scrollYProgress, [0, 0.1], ['0%', '-77%']);
-  const top = useTransform(scrollYProgress, [0, 0.1], ['0%', '-19%']);
-  return (
-    <motion.div
-      style={{ width, height, left, top }}
-      className="absolute inset-0 -z-10 mx-auto max-h-[4rem] min-w-fit max-w-[64rem] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
-    ></motion.div>
-  );
-};
-
-interface ItemProps {
-  item: string;
-  isSelected?: boolean;
-  onClick: () => void;
-}
-
-const Item = (props: ItemProps) => {
-  const { item, isSelected, onClick } = props;
-  const linkRef = useRef<HTMLButtonElement>(null);
-  return (
-    <button
-      onClick={onClick}
-      className={`${
-        item === 'experience' ? 'hidden ty:block' : ''
-      } relative z-0`}
-      ref={linkRef}
-    >
-      {isSelected && (
-        <motion.div
-          layoutId="selected"
-          style={getParrentWidth(linkRef)}
-          className="absolute  -top-1 -left-[15px] -z-10 block h-8  rounded-full bg-light-background px-4 dark:bg-dark-background ty:h-9 "
-          initial={false}
-          transition={spring}
-        ></motion.div>
-      )}
-      {`${item[0].toUpperCase()}${item.slice(1)}`}
-    </button>
-  );
-};
-
-const getParrentWidth = (ref: React.RefObject<HTMLButtonElement>) => {
-  if (ref.current) {
-    const { offsetWidth } = ref.current;
-    return { width: offsetWidth + 30 };
-  }
-};
-
-const spring = {
-  type: 'spring',
-  stiffness: 500,
-  damping: 30,
 };
