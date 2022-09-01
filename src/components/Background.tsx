@@ -1,4 +1,4 @@
-import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { motion, useTransform, useScroll } from 'framer-motion';
 import useWindowDimensions from '../utils/WindowDimensions';
 
 export const Background = () => {
@@ -15,7 +15,7 @@ export const Background = () => {
 };
 
 const BackgroundTiny = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
   return (
     <motion.div
@@ -26,7 +26,7 @@ const BackgroundTiny = () => {
 };
 
 const BackgroundSmall = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
   return (
     <motion.div
@@ -39,9 +39,9 @@ const BackgroundSmall = () => {
 const BackgroundMedium = (props: { widthScreen: number }) => {
   const { widthScreen } = props;
   const maxWidth =
-    92.2 +
+    94.5 +
     Math.ceil(widthScreen - 640) / (110 - Math.ceil(widthScreen - 640) / 100);
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const width = useTransform(
     scrollYProgress,
     [0, 0.1],
@@ -58,7 +58,7 @@ const BackgroundMedium = (props: { widthScreen: number }) => {
 };
 
 const BackgroundLarge = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const width = useTransform(scrollYProgress, [0, 0.1], ['100%', '254%']);
   const height = useTransform(scrollYProgress, [0, 0.1], ['100%', '145%']);
   const left = useTransform(scrollYProgress, [0, 0.1], ['0%', '-77%']);
