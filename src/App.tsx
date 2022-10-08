@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { About } from './components/About';
 import { Navbar } from './components/Navbar';
 import { Project } from './components/Project';
 import {
@@ -9,10 +8,43 @@ import {
   FiMail,
   FiLinkedin,
 } from 'react-icons/fi';
+import {
+  SiMysql,
+  SiLaravel,
+  SiDocker,
+  SiReact,
+  SiPostgresql,
+  SiTypescript,
+  SiJavascript,
+  SiPhp,
+  SiGit,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiPython,
+} from 'react-icons/si';
+import { IoLogoNodejs } from 'react-icons/io5';
+import { RiVuejsLine } from 'react-icons/ri';
 
 function App() {
   const [theme, setTheme] = useState('light');
-
+  const tech = [
+    'HTML5',
+    'CSS3',
+    'TailwindCSS',
+    'Javascript (ES6+)',
+    'Typescript',
+    'NodeJS',
+    'React',
+    'Vue',
+    'PHP',
+    'Laravel',
+    'Python',
+    'Git',
+    'Mysql',
+    'Postgresql',
+    'Docker',
+  ];
   const githubUsername = 'Drithh';
   const projects = [
     'rental-mobil',
@@ -36,9 +68,60 @@ function App() {
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col ">
           <Navbar theme={theme} setTheme={setTheme} />
           <main className="flex flex-col gap-8 px-4 text-xl">
-            <About />
-
-            <div id="experience" className="section text-justify">
+            <section id="about" className="mt-12 flex flex-col gap-6">
+              <div className="flex flex-col gap-2 text-justify">
+                <div className="mb-3 text-2xl text-light-text text-opacity-50 dark:text-dark-text">
+                  Ohh you found me?. Howdy!
+                </div>
+                <div>
+                  My name is{' '}
+                  <span className="font-bold">Adriel Alfeus Hutabarat</span>,
+                  I'm a software developer based in Surakarta, Indonesia. I am a
+                  self-taught developer and I am passionate about building web
+                  applications.{' '}
+                </div>
+                <div>
+                  I am currently studying at the Sebelas Maret University,
+                  Majoring in Computer Science. I really like learning new
+                  technologies and discovering new stuff
+                </div>
+              </div>
+              <div className="tech-stack">
+                Here are few technologies that are cup of my coffee
+                <div className="mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] text-light-transparent dark:text-dark-transparent md:grid-cols-3">
+                  {tech.map((tech, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="tech flex items-center gap-x-3"
+                      >
+                        <div className="tech-icon ">
+                          {tech === 'HTML5' && <SiHtml5 />}
+                          {tech === 'CSS3' && <SiCss3 />}
+                          {tech === 'TailwindCSS' && <SiTailwindcss />}
+                          {tech === 'Javascript (ES6+)' && <SiJavascript />}
+                          {tech === 'Typescript' && <SiTypescript />}
+                          {tech === 'NodeJS' && <IoLogoNodejs />}
+                          {tech === 'React' && <SiReact />}
+                          {tech === 'Vue' && <RiVuejsLine />}
+                          {tech === 'PHP' && <SiPhp />}
+                          {tech === 'Laravel' && <SiLaravel />}
+                          {tech === 'Python' && <SiPython />}
+                          {tech === 'Git' && <SiGit />}
+                          {tech === 'Mysql' && <SiMysql />}
+                          {tech === 'Postgresql' && <SiPostgresql />}
+                          {tech === 'Docker' && <SiDocker />}
+                        </div>
+                        <span className="tech-name font-title text-[1.05rem] font-light">
+                          {tech}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+            <section id="experience" className="text-justify">
               <div>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
@@ -120,9 +203,8 @@ function App() {
                 accusamus aliquam, aliquid molestiae dolorem accusantium
                 blanditiis. Quas dolore commodi non hic!
               </div>
-            </div>
-
-            <div id="project" className="section text-justify">
+            </section>
+            <section id="project" className="section text-justify">
               <div className="header mb-20 mt-4 flex flex-col place-content-center place-items-center gap-y-2">
                 <div className="title  text-center font-title text-5xl font-bold">
                   Projects
@@ -151,9 +233,8 @@ function App() {
                   See more on Github
                 </a>
               </div>
-            </div>
-
-            <div id="contact" className="section mb-20 text-justify">
+            </section>
+            <section id="contact" className="section mb-20 text-justify">
               <div className="header mt-12 flex flex-col place-content-start place-items-start gap-y-2">
                 <div className="title mb-4 text-left font-title text-5xl font-bold tracking-wider">
                   Say Hi!
@@ -169,44 +250,49 @@ function App() {
                   Don't be afraid to contact me!
                 </div>
               </div>
-              <div className="contact-list  mt-5 mb-20 flex gap-5">
+              <div className="contact-list  mt-5 mb-20 flex gap-5 text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent">
                 <a
                   href="https://www.instagram.com/adrielalfeus/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Instagram"
                 >
-                  <FiInstagram className="text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent" />
+                  <FiInstagram />
                 </a>
                 <a
                   href="https://www.facebook.com/aalfeus1/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Facebook"
                 >
-                  <FiFacebook className="text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent" />
+                  <FiFacebook />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/adrielalfeus/"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="LinkedIn"
                 >
-                  <FiLinkedin className="text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent" />
+                  <FiLinkedin />
                 </a>
                 <a
                   href="https://github.com/Drithh"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Github"
                 >
-                  <FiGithub className="text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent" />
+                  <FiGithub />
                 </a>
                 <a
                   href="mailto:contact@drith.me"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="Email"
                 >
-                  <FiMail className="text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent" />
+                  <FiMail />
                 </a>
               </div>
-            </div>
+            </section>
           </main>
         </div>
       </div>

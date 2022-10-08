@@ -35,13 +35,10 @@ export const Navbar = (props: {
 
   useEffect(() => {
     const onScroll = () => {
-      const elements = document.querySelectorAll(`.section`);
-
-      // get element that closest to scrollTop
+      const elements = document.querySelectorAll(`section`);
 
       if (elements) {
         elements.forEach((element) => {
-          // const id = element.id;
           const top = element.getBoundingClientRect().top;
 
           if (top > 0 && top < 150) {
@@ -50,6 +47,7 @@ export const Navbar = (props: {
             if (width <= 420 && element.id === 'experience') {
               return;
             }
+            console.log(element);
             setSelected(element.id);
           } else if (element.id === 'contact' && top < 600) {
             setSelected(element.id);
