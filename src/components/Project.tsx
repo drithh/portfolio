@@ -18,7 +18,7 @@ export const Project = () => {
           A couple of my favorite projects I have built alone or with someone
         </div>
       </div>
-      <div className="projects grid grid-cols-1 gap-x-16 md:grid-cols-2">
+      <div className="projects grid grid-cols-1 gap-16 md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectItem
             key={index}
@@ -26,6 +26,16 @@ export const Project = () => {
             project={project}
           />
         ))}
+      </div>
+      <div className="more mb-8 mt-16 flex place-content-center">
+        <a
+          href={`https://github.com/${githubUsername}?tab=repositories`}
+          target="_blank"
+          rel="noreferrer"
+          className="text-2xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+        >
+          See more on Github
+        </a>
       </div>
     </>
   );

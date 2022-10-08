@@ -24,7 +24,6 @@ export const ProjectItem = (props: {
           `https://api.github.com/repos/${githubUsername}/${project}`
         );
         const data = await response.json();
-        console.log(data);
         setProjectData(data);
         setLoading(false);
       } catch (error) {
@@ -36,17 +35,21 @@ export const ProjectItem = (props: {
   return loading ? (
     <div>Loading...</div>
   ) : (
-    <div className="project mb-12 flex flex-col gap-y-2">
-      <div className="thumbnail transition duration-300 ease-in-out hover:scale-[1.025]">
+    <div className="project flex flex-col gap-y-2">
+      <div className="thumbnail mb-4 transition duration-300 ease-in-out hover:z-0 hover:scale-[1.025]">
         <img
           src={`/projects/${project}.png`}
           alt={project}
           className="w-full rounded-3xl"
         />
       </div>
-      <div className="title font-title text-2xl font-bold">
+      <a
+        href={projectData.html_url}
+        target="_blank"
+        className="title font-title text-2xl font-bold hover:underline"
+      >
         {convertProjectName(project)}
-      </div>
+      </a>
       <div className="desc texl-bg text-light-transparent dark:text-dark-transparent">
         {projectData?.description}
       </div>
