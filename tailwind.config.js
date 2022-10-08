@@ -22,7 +22,7 @@ module.exports = {
         title: ['Inter', 'sans-serif'],
       },
       screens: {
-        ty: '400px',
+        ty: '420px',
       },
     },
   },
