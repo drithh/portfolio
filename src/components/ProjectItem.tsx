@@ -38,7 +38,7 @@ export const ProjectItem = (props: {
     <div className="project flex flex-col gap-y-2">
       <div className="thumbnail mb-4 transition duration-300 ease-in-out hover:z-0 hover:scale-[1.025]">
         <img
-          src={`/projects/${project}.png`}
+          src={`/projects/${project}.webp`}
           alt={project}
           className="w-full rounded-3xl"
         />
@@ -47,6 +47,7 @@ export const ProjectItem = (props: {
         href={projectData.html_url}
         target="_blank"
         className="title font-title text-2xl font-bold hover:underline"
+        rel="noreferrer"
       >
         {convertProjectName(project)}
       </a>
