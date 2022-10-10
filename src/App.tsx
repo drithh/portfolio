@@ -76,18 +76,30 @@ function App() {
                 <div>
                   My name is{' '}
                   <span className="font-bold">Adriel Alfeus Hutabarat</span>,
-                  I'm a software developer based in Surakarta, Indonesia. I am a
-                  self-taught developer and I am passionate about building web
-                  applications.{' '}
+                  I'm a Junior Web Developer based in Surakarta, Indonesia. I am
+                  currently studying at the Sebelas Maret University, Majoring
+                  in Computer Science
                 </div>
                 <div>
-                  I am currently studying at the Sebelas Maret University,
-                  Majoring in Computer Science. I really like learning new
-                  technologies and discovering new stuff
+                  I'm passionate in the art of web development, both front-end
+                  and back-end. trying to learn every day for being more
+                  efficient and strong in becoming the best self.
+                </div>
+                <div>
+                  In my spare time, I like to relax with a bit of old-fashioned
+                  fun. I browse the latest memes on Reddit and Facebook, as well
+                  as playing video games. One of the things I enjoy the most is
+                  watching movies. In particular, Science Fiction and Action
+                  movies hold my attention for a long time.
                 </div>
               </div>
-              <div className="tech-stack">
-                Here are few technologies that are cup of my coffee
+              <div className="tech">
+                <div className="title mb-4 mt-6 text-left font-title text-5xl font-bold tracking-wide">
+                  Stack
+                </div>
+                <div className="title my-4 text-left font-title text-5xl font-bold tracking-wide"></div>
+                Here are few technologies that are cup of my{' '}
+                <span className="line-through">coffee</span> tea
                 <div className="mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] text-light-transparent dark:text-dark-transparent md:grid-cols-3">
                   {tech.map((tech, index) => {
                     return (
