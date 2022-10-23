@@ -43,7 +43,7 @@ export const Project = (props: { githubUsername: string; project: string }) => {
       <a
         href={projectData.html_url}
         target="_blank"
-        className="title font-title text-2xl font-bold hover:underline"
+        className="title font-title md:text-2xl text-xl font-bold hover:underline"
         rel="noreferrer"
       >
         {convertProjectName(project)}
