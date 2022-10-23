@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Project } from './components/Project';
+import { Experience } from './components/Experience';
 import {
   FiInstagram,
   FiFacebook,
@@ -23,7 +24,8 @@ import {
   SiCss3,
   SiPython,
 } from 'react-icons/si';
-import { IoLogoNodejs } from 'react-icons/io5';
+import { SlGraduation } from 'react-icons/sl';
+import { IoLogoNodejs, IoCodeSlash } from 'react-icons/io5';
 import { RiVuejsLine } from 'react-icons/ri';
 
 function App() {
@@ -86,11 +88,11 @@ function App() {
                   efficient and strong in becoming the best self.
                 </div>
                 <div>
-                  In my spare time, I like to relax with a bit of old-fashioned
-                  fun. I browse the latest memes on Reddit and Facebook, as well
-                  as playing video games. One of the things I enjoy the most is
-                  watching movies. In particular, Science Fiction and Action
-                  movies hold my attention for a long time.
+                  In my spare time, I spend a lot of time doing things I enjoy,
+                  such as browsing memes on Reddit and Facebook and playing
+                  video games. One of the things I enjoy the most is watching
+                  movies. In particular, Science Fiction and Action movies hold
+                  my attention for a long time.
                 </div>
               </div>
               <div className="tech">
@@ -134,89 +136,65 @@ function App() {
               </div>
             </section>
             <section id="experience" className="text-justify">
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
-                dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
-                expedita ducimus hic sint voluptatem illo laborum aliquam. Ipsa
-                consequatur odit obcaecati sunt impedit repellendus debitis
-                doloremque nemo accusamus fuga. Saepe laudantium iusto
-                blanditiis, neque odit aliquid veniam eaque? Nihil rem totam
-                velit eveniet cum ab, dicta ducimus. Corporis, autem voluptate
-                vero architecto atque eius nobis ullam obcaecati blanditiis
-                porro, quisquam reiciendis a pariatur quia. Quo eos tempore
-                quidem soluta cupiditate alias dolor rem dignissimos non tenetur
-                corporis deleniti laborum facilis ratione illum veritatis, autem
-                vero laudantium mollitia nisi maiores aliquam voluptas et
-                voluptatibus. Fuga perferendis error voluptatem vero ex rerum
-                sequi doloremque? Repellendus animi voluptatum id saepe beatae
-                rem temporibus esse eius aliquam harum, voluptates consequatur,
-                inventore minus sit eum quo numquam maiores! Tempora molestias,
-                eligendi modi reiciendis, culpa nemo sunt eaque fugiat quo
-                architecto quisquam adipisci accusantium vel! Necessitatibus
-                porro, voluptatem repudiandae voluptates nemo facere architecto
-                consectetur recusandae iure ea quae, explicabo nulla aliquid nam
-                totam soluta perspiciatis exercitationem dolor accusamus ad!
-                Exercitationem laudantium earum ea officiis ut, nisi, soluta
-                accusamus aliquam, aliquid molestiae dolorem accusantium
-                blanditiis. Quas dolore commodi non hic!
+              <div className="title mb-4 mt-16 text-left font-title text-5xl font-bold tracking-wide">
+                Education & Work
               </div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
-                dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
-                expedita ducimus hic sint voluptatem illo laborum aliquam. Ipsa
-                consequatur odit obcaecati sunt impedit repellendus debitis
-                doloremque nemo accusamus fuga. Saepe laudantium iusto
-                blanditiis, neque odit aliquid veniam eaque? Nihil rem totam
-                velit eveniet cum ab, dicta ducimus. Corporis, autem voluptate
-                vero architecto atque eius nobis ullam obcaecati blanditiis
-                porro, quisquam reiciendis a pariatur quia. Quo eos tempore
-                quidem soluta cupiditate alias dolor rem dignissimos non tenetur
-                corporis deleniti laborum facilis ratione illum veritatis, autem
-                vero laudantium mollitia nisi maiores aliquam voluptas et
-                voluptatibus. Fuga perferendis error voluptatem vero ex rerum
-                sequi doloremque? Repellendus animi voluptatum id saepe beatae
-                rem temporibus esse eius aliquam harum, voluptates consequatur,
-                inventore minus sit eum quo numquam maiores! Tempora molestias,
-                eligendi modi reiciendis, culpa nemo sunt eaque fugiat quo
-                architecto quisquam adipisci accusantium vel! Necessitatibus
-                porro, voluptatem repudiandae voluptates nemo facere architecto
-                consectetur recusandae iure ea quae, explicabo nulla aliquid nam
-                totam soluta perspiciatis exercitationem dolor accusamus ad!
-                Exercitationem laudantium earum ea officiis ut, nisi, soluta
-                accusamus aliquam, aliquid molestiae dolorem accusantium
-                blanditiis. Quas dolore commodi non hic!
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, aut amet dicta iusto dolore ullam impedit dolorum et
-                dolorem possimus ipsa itaque corrupti, deserunt reiciendis ab,
-                expedita ducimus hic sint voluptatem illo laborum aliquam. Ipsa
-                consequatur odit obcaecati sunt impedit repellendus debitis
-                doloremque nemo accusamus fuga. Saepe laudantium iusto
-                blanditiis, neque odit aliquid veniam eaque? Nihil rem totam
-                velit eveniet cum ab, dicta ducimus. Corporis, autem voluptate
-                vero architecto atque eius nobis ullam obcaecati blanditiis
-                porro, quisquam reiciendis a pariatur quia. Quo eos tempore
-                quidem soluta cupiditate alias dolor rem dignissimos non tenetur
-                corporis deleniti laborum facilis ratione illum veritatis, autem
-                vero laudantium mollitia nisi maiores aliquam voluptas et
-                voluptatibus. Fuga perferendis error voluptatem vero ex rerum
-                sequi doloremque? Repellendus animi voluptatum id saepe beatae
-                rem temporibus esse eius aliquam harum, voluptates consequatur,
-                inventore minus sit eum quo numquam maiores! Tempora molestias,
-                eligendi modi reiciendis, culpa nemo sunt eaque fugiat quo
-                architecto quisquam adipisci accusantium vel! Necessitatibus
-                porro, voluptatem repudiandae voluptates nemo facere architecto
-                consectetur recusandae iure ea quae, explicabo nulla aliquid nam
-                totam soluta perspiciatis exercitationem dolor accusamus ad!
-                Exercitationem laudantium earum ea officiis ut, nisi, soluta
-                accusamus aliquam, aliquid molestiae dolorem accusantium
-                blanditiis. Quas dolore commodi non hic!
+              <div className="flex flex-col mt-8">
+                <Experience
+                  icon={<IoCodeSlash />}
+                  title="Internship"
+                  date="Sep 2022 - Now"
+                  description={
+                    <>
+                      <div className="">
+                        Sebelas Maret University School ERP Project
+                      </div>
+                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
+                        <li>
+                          Developing Backoffice for School ERP Using Laravel
+                        </li>
+                        <li>Developing Backend for School ERP Using Golang</li>
+                      </ul>
+                    </>
+                  }
+                />
+                <Experience
+                  icon={<IoCodeSlash />}
+                  title="Freelance"
+                  date="Mar 2021 - Nov 2021"
+                  description={
+                    <>
+                      <div className="">P!NGFEST2021</div>
+                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
+                        <li>
+                          Designing UI Homepage for the website and mobile view
+                        </li>
+                        <li>
+                          Implementing the UI design using Raw HTML, CSS, and JS
+                        </li>
+                        <li>
+                          Improving User Experience by adding some animations
+                        </li>
+                      </ul>
+                    </>
+                  }
+                />
+                <Experience
+                  icon={<SlGraduation />}
+                  title="College"
+                  date="July 2020 - Present"
+                  description={
+                    <>
+                      <div className="">Sebelas Maret University</div>
+                      <div className="text-light-transparent dark:text-dark-transparent">
+                        Bachelor of Computer Science, Currently in 3rd year
+                      </div>
+                    </>
+                  }
+                />
               </div>
             </section>
-            <section id="project" className="section text-justify">
+            <section id="project" className="section text-justify mt-20">
               <div className="header mb-20 mt-4 flex flex-col place-content-center place-items-center gap-y-2">
                 <div className="title  text-center font-title text-5xl font-bold">
                   Projects
@@ -240,7 +218,7 @@ function App() {
                   href={`https://github.com/${githubUsername}?tab=repositories`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-2xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  className="text-2xl text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent"
                 >
                   See more on Github
                 </a>
@@ -262,9 +240,10 @@ function App() {
                   Don't be afraid to contact me!
                 </div>
               </div>
-              <div className="contact-list  mt-5 mb-20 flex gap-5 text-3xl text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent">
+              <div className="contact-list  mt-5 mb-20 flex gap-5 text-3xl ">
                 <a
                   href="https://www.instagram.com/adrielalfeus/"
+                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -272,7 +251,8 @@ function App() {
                   <FiInstagram />
                 </a>
                 <a
-                  href="https://www.facebook.com/aalfeus1/"
+                  href="https://www.facebook.com/adrielalfeus/"
+                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook"
@@ -281,6 +261,7 @@ function App() {
                 </a>
                 <a
                   href="https://www.linkedin.com/in/adrielalfeus/"
+                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -289,6 +270,7 @@ function App() {
                 </a>
                 <a
                   href="https://github.com/Drithh"
+                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Github"
@@ -297,6 +279,7 @@ function App() {
                 </a>
                 <a
                   href="mailto:contact@drith.me"
+                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Email"
