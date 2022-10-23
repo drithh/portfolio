@@ -66,13 +66,13 @@ function App() {
 
   return (
     <div className={`App ${theme} `}>
-      <div className="body bg-light-background text-light-text transition-all dark:bg-dark-background  dark:text-dark-text">
+      <div className="body bg-light-background text-light-text transition-all motion-reduce:transition-none dark:bg-dark-background  dark:text-dark-text">
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col ">
           <Navbar theme={theme} setTheme={setTheme} />
           <main className="flex flex-col gap-8 px-4 text-xl">
             <section id="about" className="mt-12 flex flex-col gap-6">
               <div className="flex flex-col gap-2 text-justify">
-                <div className="mb-3 text-2xl text-light-text text-opacity-50 dark:text-dark-text">
+                <div className="mb-3 text-2xl text-light-text text-opacity-50  dark:text-dark-text">
                   Ohh you found me?. Howdy!
                 </div>
                 <div>

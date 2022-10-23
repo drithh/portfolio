@@ -47,7 +47,7 @@ export const Navbar = (props: {
             if (width <= 420 && element.id === 'experience') {
               return;
             }
-            console.log(element);
+            // console.log(element);
             setSelected(element.id);
           } else if (element.id === 'contact' && top < 600) {
             setSelected(element.id);
