@@ -71,7 +71,7 @@ function App() {
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col ">
           <Navbar theme={theme} setTheme={setTheme} />
           <main className="flex flex-col gap-8 px-4 md:text-xl text-lg">
-            <section id="about" className="mt-12 flex flex-col gap-6">
+            <section id="about" className="lg:mt-8 flex flex-col gap-6">
               <div className="flex flex-col gap-2 text-justify">
                 <div className="mb-3 md:text-2xl text-xl text-light-text text-opacity-50  dark:text-dark-text">
                   Ohh you found me?. Howdy!
@@ -155,7 +155,7 @@ function App() {
                 <Experience
                   icon={<IoCodeSlash />}
                   title="Internship"
-                  date="Sep 2022 - Now"
+                  date="Sep 2022 - Present"
                   description={
                     <>
                       <div className="">

@@ -16,7 +16,7 @@ export const Background = () => {
 
 const BackgroundTiny = () => {
   const { scrollYProgress } = useScroll();
-  const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.006], ['2.25rem', '0.75rem']);
   return (
     <motion.div
       style={{ top }}
@@ -27,7 +27,7 @@ const BackgroundTiny = () => {
 
 const BackgroundSmall = () => {
   const { scrollYProgress } = useScroll();
-  const top = useTransform(scrollYProgress, [0, 0.005], ['3.3rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.006], ['2.25rem', '0.75rem']);
   return (
     <motion.div
       style={{ top }}

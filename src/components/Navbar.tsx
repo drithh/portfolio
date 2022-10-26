@@ -60,7 +60,7 @@ export const Navbar = (props: {
   }, []);
 
   return (
-    <nav className="sticky top-2 z-10 my-12 flex h-fit w-full items-center justify-center py-2 sm:justify-between ty:px-4">
+    <nav className="sticky top-2 z-10 lg:my-12 my-8 flex h-fit w-full items-center justify-center py-2 sm:justify-between ty:px-4">
       <div className="profile hidden lg:block">
         <img src="/avatar.png" className="h-auto w-12" alt="profile" />
       </div>
