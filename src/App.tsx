@@ -68,12 +68,12 @@ function App() {
   return (
     <div className={`App ${theme} `}>
       <div className="body bg-light-background text-light-text transition-all motion-reduce:transition-none dark:bg-dark-background  dark:text-dark-text">
-        <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col ">
+        <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col font-sans">
           <Navbar theme={theme} setTheme={setTheme} />
-          <main className="flex flex-col gap-8 px-4 md:text-xl text-lg">
-            <section id="about" className="lg:mt-8 flex flex-col gap-6">
+          <main className="flex flex-col gap-8 px-4 text-lg md:text-xl">
+            <section id="about" className="flex flex-col gap-6 lg:mt-8">
               <div className="flex flex-col gap-2 text-justify">
-                <div className="mb-3 md:text-2xl text-xl text-light-text text-opacity-50  dark:text-dark-text">
+                <div className="mb-3 text-xl text-light-text text-opacity-50 dark:text-dark-text  md:text-2xl">
                   Ohh you found me?. Howdy!
                 </div>
                 <div>
@@ -100,7 +100,7 @@ function App() {
                 <a
                   target="_blank"
                   href="adriel-alfeus.pdf"
-                  className="flex gap-x-2 text-light-extra-transparent text-lg dark:text-dark-extra-transparent rounded-lg border-light-extra-transparent dark:border-dark-extra-transparent border w-fit px-4 py-2 hover:text-light-text dark:hover:text-dark-text hover:border-light-text dark:hover:border-dark-text transition-all motion-reduce:transition-none"
+                  className="flex w-fit gap-x-2 rounded-lg border border-light-extra-transparent px-4 py-2 text-lg text-light-extra-transparent transition-all hover:border-light-text hover:text-light-text motion-reduce:transition-none dark:border-dark-extra-transparent dark:text-dark-extra-transparent dark:hover:border-dark-text dark:hover:text-dark-text"
                 >
                   <div className="text-[1.5rem]">
                     <HiOutlineDocumentDownload />
@@ -109,7 +109,7 @@ function App() {
                 </a>
               </div>
               <div className="tech">
-                <div className="title mb-4 mt-6 text-left font-title md:text-5xl text-4xl font-bold tracking-wide">
+                <div className="title mb-4 mt-6 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
                   Stack
                 </div>
                 Here are few technologies that are cup of my{' '}
@@ -148,10 +148,10 @@ function App() {
               </div>
             </section>
             <section id="experience" className="text-justify">
-              <div className="title mb-4 mt-16 text-left font-title md:text-5xl text-4xl font-bold tracking-wide">
+              <div className="title mb-4 mt-16 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
                 Education & Work
               </div>
-              <div className="flex flex-col mt-8">
+              <div className="mt-8 flex flex-col">
                 <Experience
                   icon={<IoCodeSlash />}
                   title="Internship"
@@ -161,7 +161,7 @@ function App() {
                       <div className="">
                         Sebelas Maret University School ERP Project
                       </div>
-                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
+                      <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
                         <li>
                           Developing Backoffice for School ERP Using Laravel
                         </li>
@@ -177,7 +177,7 @@ function App() {
                   description={
                     <>
                       <div className="">P!NGFEST2021</div>
-                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
+                      <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
                         <li>
                           Designing UI Homepage for the website and mobile view
                         </li>
@@ -206,9 +206,9 @@ function App() {
                 />
               </div>
             </section>
-            <section id="project" className="section text-justify mt-20">
+            <section id="project" className="section mt-20 text-justify">
               <div className="header mb-20 mt-4 flex flex-col place-content-center place-items-center gap-y-2">
-                <div className="title  text-center font-title md:text-5xl text-4xl font-bold">
+                <div className="title  text-center font-title text-4xl font-bold md:text-5xl">
                   Projects
                 </div>
                 <div className="desc text-light-transparent dark:text-dark-transparent">
@@ -230,7 +230,7 @@ function App() {
                   href={`https://github.com/${githubUsername}?tab=repositories`}
                   target="_blank"
                   rel="noreferrer"
-                  className="md:text-2xl text-xl text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent"
+                  className="text-xl text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent md:text-2xl"
                 >
                   See more on Github
                 </a>
@@ -238,7 +238,7 @@ function App() {
             </section>
             <section id="contact" className="section mb-20 text-justify">
               <div className="header mt-12 flex flex-col place-content-start place-items-start gap-y-2">
-                <div className="title mb-4 text-left font-title md:text-5xl text-4xl font-bold tracking-wider">
+                <div className="title mb-4 text-left font-title text-4xl font-bold tracking-wider md:text-5xl">
                   Say Hi!
                 </div>
                 <div className="desc text-light-transparent dark:text-dark-transparent">
@@ -252,7 +252,7 @@ function App() {
                   Don't be afraid to contact me!
                 </div>
               </div>
-              <div className="contact-list  mt-5 mb-20 flex gap-5 md:text-3xl text-2xl ">
+              <div className="contact-list  mt-5 mb-20 flex gap-5 text-2xl md:text-3xl ">
                 <a
                   href="https://www.instagram.com/adrielalfeus/"
                   className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"

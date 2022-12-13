@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'GT Walsheim';
+    font-style: normal;
+    font-weight: 400;
+    src: local('GT Walsheim'), url('/fonts/GTWALSHEIM.woff') format('woff2');
+}
+
