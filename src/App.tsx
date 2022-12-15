@@ -50,7 +50,8 @@ function App() {
   ];
   const githubUsername = 'Drithh';
   const projects = [
-    'rental-mobil',
+    'e-commerce-website',
+    'car-rental',
     'invoice-website',
     'weather-bayes',
     'turing-machine',
