@@ -23,7 +23,10 @@ import {
   SiHtml5,
   SiCss3,
   SiPython,
+  SiFastapi,
+  SiGo,
 } from 'react-icons/si';
+import { DiGoogleCloudPlatform } from 'react-icons/di';
 import { SlGraduation } from 'react-icons/sl';
 import { IoLogoNodejs, IoCodeSlash } from 'react-icons/io5';
 import { RiVuejsLine } from 'react-icons/ri';
@@ -32,21 +35,78 @@ import { HiOutlineDocumentDownload } from 'react-icons/hi';
 function App() {
   const [theme, setTheme] = useState('light');
   const tech = [
-    'HTML5',
-    'CSS3',
-    'TailwindCSS',
-    'Javascript (ES6+)',
-    'Typescript',
-    'NodeJS',
-    'React',
-    'Vue',
-    'PHP',
-    'Laravel',
-    'Python',
-    'Git',
-    'Mysql',
-    'Postgresql',
-    'Docker',
+    {
+      name: 'HTML5',
+      icon: <SiHtml5 />,
+    },
+    {
+      name: 'CSS3',
+      icon: <SiCss3 />,
+    },
+    {
+      name: 'TailwindCSS',
+      icon: <SiTailwindcss />,
+    },
+    {
+      name: 'Javascript (ES6+)',
+      icon: <SiJavascript />,
+    },
+    {
+      name: 'Typescript',
+      icon: <SiTypescript />,
+    },
+    {
+      name: 'NodeJS',
+      icon: <IoLogoNodejs />,
+    },
+    {
+      name: 'React',
+      icon: <SiReact />,
+    },
+    {
+      name: 'Vue',
+      icon: <RiVuejsLine />,
+    },
+    {
+      name: 'PHP',
+      icon: <SiPhp />,
+    },
+    {
+      name: 'Laravel',
+      icon: <SiLaravel />,
+    },
+    {
+      name: 'Python',
+      icon: <SiPython />,
+    },
+    {
+      name: 'FastAPI',
+      icon: <SiFastapi />,
+    },
+    {
+      name: 'GoLang',
+      icon: <SiGo />,
+    },
+    {
+      name: 'Git',
+      icon: <SiGit />,
+    },
+    {
+      name: 'Mysql',
+      icon: <SiMysql />,
+    },
+    {
+      name: 'Postgresql',
+      icon: <SiPostgresql />,
+    },
+    {
+      name: 'Docker',
+      icon: <SiDocker />,
+    },
+    {
+      name: 'Google Cloud Platform',
+      icon: <DiGoogleCloudPlatform />,
+    },
   ];
   const githubUsername = 'Drithh';
   const projects = [
@@ -122,25 +182,9 @@ function App() {
                         key={index}
                         className="tech flex items-center gap-x-3"
                       >
-                        <div className="tech-icon ">
-                          {tech === 'HTML5' && <SiHtml5 />}
-                          {tech === 'CSS3' && <SiCss3 />}
-                          {tech === 'TailwindCSS' && <SiTailwindcss />}
-                          {tech === 'Javascript (ES6+)' && <SiJavascript />}
-                          {tech === 'Typescript' && <SiTypescript />}
-                          {tech === 'NodeJS' && <IoLogoNodejs />}
-                          {tech === 'React' && <SiReact />}
-                          {tech === 'Vue' && <RiVuejsLine />}
-                          {tech === 'PHP' && <SiPhp />}
-                          {tech === 'Laravel' && <SiLaravel />}
-                          {tech === 'Python' && <SiPython />}
-                          {tech === 'Git' && <SiGit />}
-                          {tech === 'Mysql' && <SiMysql />}
-                          {tech === 'Postgresql' && <SiPostgresql />}
-                          {tech === 'Docker' && <SiDocker />}
-                        </div>
+                        <div className="tech-icon ">{tech.icon}</div>
                         <span className="tech-name font-title text-[1.05rem] font-light">
-                          {tech}
+                          {tech.name}
                         </span>
                       </div>
                     );
@@ -164,9 +208,16 @@ function App() {
                       </div>
                       <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
                         <li>
-                          Developing Backoffice for School ERP Using Laravel
+                          Developed Backoffice for School ERP Using Laravel
                         </li>
-                        <li>Developing Backend for School ERP Using Golang</li>
+                        <li>
+                          Developed Frontend application for School ERP Using
+                          ReactJS
+                        </li>
+                        <li>
+                          Developed Backend application for School ERP Using
+                          Golang
+                        </li>
                       </ul>
                     </>
                   }
@@ -179,14 +230,12 @@ function App() {
                     <>
                       <div className="">P!NGFEST2021</div>
                       <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
+                        <li>Designed Home UI for website and mobile view</li>
                         <li>
-                          Designing UI Homepage for the website and mobile view
+                          Implemented UI design using Raw HTML, CSS, and JS
                         </li>
                         <li>
-                          Implementing the UI design using Raw HTML, CSS, and JS
-                        </li>
-                        <li>
-                          Improving User Experience by adding some animations
+                          Improved User Experience by adding some animations
                         </li>
                       </ul>
                     </>
