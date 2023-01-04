@@ -1,8 +1,8 @@
 import { motion, useTransform, useScroll } from 'framer-motion';
-import useWindowDimensions from '../utils/WindowDimensions';
+// import useWindowDimensions from '../utils/WindowDimensions';
 
 export const Background = () => {
-  const { width } = useWindowDimensions();
+  const width = 1024; // useWindowDimensions();
   if (width > 1024) {
     return <BackgroundLarge />;
   } else if (width > 640) {
