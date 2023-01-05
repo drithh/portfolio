@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Item } from './Item';
 import { Background } from './BackgroundNavbar';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import Image from 'next/image';
 
 const text = ['about', 'experience', 'project', 'contact'];
 
@@ -62,7 +63,7 @@ export const Navbar = (props: {
   return (
     <nav className="sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4 sm:justify-between lg:my-12">
       <div className="profile hidden lg:block">
-        <img src="/avatar.png" className="h-auto w-12" alt="profile" />
+        <Image src="/avatar.png" alt="profile" width={48} height={48} />
       </div>
 
       <div className="text-sans relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6 text-base font-semibold  transition-all  ty:text-lg  sm:w-min  lg:py-2">

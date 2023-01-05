@@ -142,14 +142,14 @@ function App() {
                 <div>
                   My name is{' '}
                   <span className="font-bold">Adriel Alfeus Hutabarat</span>,
-                  I'm a Junior Web Developer based in Surakarta, Indonesia. I am
-                  currently studying at the Sebelas Maret University, Majoring
-                  in Computer Science
+                  I&apos;m a Junior Web Developer based in Surakarta, Indonesia.
+                  I am currently studying at the Sebelas Maret University,
+                  Majoring in Computer Science
                 </div>
                 <div>
-                  I'm passionate in the art of web development, both front-end
-                  and back-end. trying to learn every day for being more
-                  efficient and strong in becoming the best self.
+                  I&apos;m passionate in the art of web development, both
+                  front-end and back-end. trying to learn every day for being
+                  more efficient and strong in becoming the best self.
                 </div>
                 <div>
                   In my spare time, I spend a lot of time doing things I enjoy,
@@ -301,7 +301,7 @@ function App() {
                   <a href="mailto:contact@drith.me">email.</a>
                 </div>
                 <div className="mt text-light-transparent dark:text-dark-transparent">
-                  Don't be afraid to contact me!
+                  Don&apos;t be afraid to contact me!
                 </div>
               </div>
               <div className="contact-list  mt-5 mb-20 flex gap-5 text-2xl md:text-3xl ">

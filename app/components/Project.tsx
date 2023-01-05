@@ -18,7 +18,10 @@ export const Project = (props: { githubUsername: string; project: string }) => {
     const fetchProjectData = async () => {
       try {
         const response = await fetch(
-          `https://api.github.com/repos/${githubUsername}/${project}`
+          `https://api.github.com/repos/${githubUsername}/${project}`,
+          {
+            cache: 'no-cache',
+          }
         );
         const data = await response.json();
         setProjectData(data);
@@ -43,7 +46,7 @@ export const Project = (props: { githubUsername: string; project: string }) => {
       <a
         href={projectData.html_url}
         target="_blank"
-        className="title font-title md:text-2xl text-xl font-bold hover:underline"
+        className="title font-title text-xl font-bold hover:underline md:text-2xl"
         rel="noreferrer"
       >
         {convertProjectName(project)}
