@@ -1,9 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Item } from './Item';
-import { Background } from './Background';
+import { Background } from './BackgroundNavbar';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-// import { useViewportScroll } from 'framer-motion';
 
 const text = ['about', 'experience', 'project', 'contact'];
 

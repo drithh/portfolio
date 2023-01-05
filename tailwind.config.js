@@ -21,7 +21,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['GT Walsheim', 'sans-serif'],
-        title: ['Inter', 'sans-serif'],
+        title: "var(--font-title)",
       },
       screens: {
         ty: '420px',
