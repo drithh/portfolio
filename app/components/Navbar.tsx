@@ -21,6 +21,13 @@ export const Navbar = (props: {
   const scrollPosition = (item: string) => {
     const element = document.querySelector(`#${item}`);
     if (element) {
+      if (item === 'about') {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+        return;
+      }
       const offset = 100;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
@@ -31,7 +38,6 @@ export const Navbar = (props: {
         behavior: 'smooth',
       });
     }
-    // setSelected(item);
   };
 
   useEffect(() => {

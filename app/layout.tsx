@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import { Inter } from '@next/font/google';
-
+import Pwa from './Pwa';
 const inter = Inter({
   variable: '--font-title',
 });
@@ -19,13 +19,17 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Adriel Portfolio" />
+        <meta name="language" content="en" />
 
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
 
         <title>Portfolio</title>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Pwa />
+      </body>
     </html>
   );
 }

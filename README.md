@@ -4,3 +4,5 @@
 
 - React
 - TypeScript
+- TailwindCSS
+- NextJS 13
