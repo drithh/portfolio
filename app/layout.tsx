@@ -29,6 +29,12 @@ export default function RootLayout({
       <body>
         {children}
         <Pwa />
+        <script
+          async
+          defer
+          src="https://analytics.umami.is/script.js"
+          data-website-id="37c6ea09-2eb8-4e44-abd5-71980ef5b207"
+        ></script>
       </body>
     </html>
   );
