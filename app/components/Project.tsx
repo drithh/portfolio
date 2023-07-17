@@ -19,10 +19,10 @@ export const Project = (props: { githubUsername: string; project: string }) => {
     const fetchProjectData = async () => {
       try {
         const response = await fetch(
-          `https://api.github.com/repos/${githubUsername}/${project}`,
-          {
-            cache: 'no-cache',
-          }
+          `https://api.github.com/repos/${githubUsername}/${project}`
+          // {
+          // cache: 'no-cache',
+          // }
         );
         if (response.status !== 200) {
           setProjectData(null);
@@ -62,7 +62,7 @@ export const Project = (props: { githubUsername: string; project: string }) => {
       <div className="desc texl-bg text-light-transparent dark:text-dark-transparent">
         {projectData?.description || ''}
       </div>
-      <div className="techs flex flex-row gap-x-2">
+      <div className="techs flex flex-row gap-2 flex-wrap">
         {projectData?.topics.map((topic: string, index: number) => (
           <div
             key={index}
