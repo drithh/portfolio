@@ -1,11 +1,11 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { Item } from './Item';
-import { Background } from './BackgroundNavbar';
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import Image from 'next/image';
+"use client";
+import { useEffect, useState } from "react";
+import { Item } from "./Item";
+import { Background } from "./BackgroundNavbar";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import Image from "next/image";
 
-const text = ['about', 'experience', 'project', 'contact'];
+const text = ["about", "experience", "project", "contact"];
 
 export const Navbar = (props: {
   theme: string;
@@ -14,17 +14,17 @@ export const Navbar = (props: {
   const { theme, setTheme } = props;
 
   const toggleDarkMode = (checked: boolean) => {
-    setTheme(checked ? 'dark' : 'light');
+    setTheme(checked ? "dark" : "light");
   };
 
   const [selected, setSelected] = useState(text[0]);
   const scrollPosition = (item: string) => {
     const element = document.querySelector(`#${item}`);
     if (element) {
-      if (item === 'about') {
+      if (item === "about") {
         window.scrollTo({
           top: 0,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
         return;
       }
@@ -35,7 +35,7 @@ export const Navbar = (props: {
       const offsetPosition = elementPosition - offset;
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -51,19 +51,19 @@ export const Navbar = (props: {
           if (top > 0 && top < 150) {
             // get client window width
             const width = window.innerWidth;
-            if (width <= 420 && element.id === 'experience') {
+            if (width <= 420 && element.id === "experience") {
               return;
             }
             // console.log(element);
             setSelected(element.id);
-          } else if (element.id === 'contact' && top < 600) {
+          } else if (element.id === "contact" && top < 600) {
             setSelected(element.id);
           }
         });
       }
     };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -87,7 +87,7 @@ export const Navbar = (props: {
       </div>
       <div className="hidden pr-2 sm:block lg:pr-0">
         <DarkModeSwitch
-          checked={theme === 'dark'}
+          checked={theme === "dark"}
           onChange={toggleDarkMode}
           sunColor="#F4DC9F"
           moonColor="#F4DC9F"

@@ -9,12 +9,12 @@ export const Experience = (props: props) => {
   const { icon, title, date, description } = props;
 
   return (
-    <div className="flex relative mt-4 ">
-      <div className="sm:block hidden absolute inset-0 md:text-3xl text-2xl w-8 h-10 dark:bg-dark-background bg-light-background">
+    <div className="relative mt-4 flex ">
+      <div className="absolute inset-0 hidden h-10 w-8 bg-light-background text-2xl dark:bg-dark-background sm:block md:text-3xl">
         {icon}
       </div>
-      <div className="flex sm:pl-[2.1rem] sm:ml-[0.9rem] flex-col gap-y-2 sm:border-l-2 border-l-light-extra-transparent dark:border-l-dark-extra-transparent">
-        <div className="title md:text-2xl text-xl">{title}</div>
+      <div className="flex flex-col gap-y-2 border-l-light-extra-transparent dark:border-l-dark-extra-transparent sm:ml-[0.9rem] sm:border-l-2 sm:pl-[2.1rem]">
+        <div className="title text-xl md:text-2xl">{title}</div>
         <div className="date text-light-extra-transparent dark:text-dark-extra-transparent">
           {date}
         </div>

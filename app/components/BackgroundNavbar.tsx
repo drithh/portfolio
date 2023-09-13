@@ -1,5 +1,5 @@
-import { motion, useTransform, useScroll } from 'framer-motion';
-import useWindowDimensions from '../utils/WindowDimensions';
+import { motion, useTransform, useScroll } from "framer-motion";
+import useWindowDimensions from "../utils/WindowDimensions";
 
 export const Background = () => {
   const { width } = useWindowDimensions();
@@ -16,7 +16,7 @@ export const Background = () => {
 
 const BackgroundTiny = () => {
   const { scrollYProgress } = useScroll();
-  const top = useTransform(scrollYProgress, [0, 0.006], ['2.25rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.006], ["2.25rem", "0.75rem"]);
   return (
     <motion.div
       style={{ top }}
@@ -27,7 +27,7 @@ const BackgroundTiny = () => {
 
 const BackgroundSmall = () => {
   const { scrollYProgress } = useScroll();
-  const top = useTransform(scrollYProgress, [0, 0.006], ['2.25rem', '0.75rem']);
+  const top = useTransform(scrollYProgress, [0, 0.006], ["2.25rem", "0.75rem"]);
   return (
     <motion.div
       style={{ top }}
@@ -45,10 +45,10 @@ const BackgroundMedium = (props: { widthScreen: number }) => {
   const width = useTransform(
     scrollYProgress,
     [0, 0.1],
-    ['40vw', `${maxWidth}vw`]
+    ["40vw", `${maxWidth}vw`]
   );
-  const height = useTransform(scrollYProgress, [0, 0.1], ['100%', '115%']);
-  const top = useTransform(scrollYProgress, [0, 0.1], ['0%', '-7.5%']);
+  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "115%"]);
+  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-7.5%"]);
   return (
     <motion.div
       style={{ width, height, top }}
@@ -59,10 +59,10 @@ const BackgroundMedium = (props: { widthScreen: number }) => {
 
 const BackgroundLarge = () => {
   const { scrollYProgress } = useScroll();
-  const width = useTransform(scrollYProgress, [0, 0.1], ['100%', '254%']);
-  const height = useTransform(scrollYProgress, [0, 0.1], ['100%', '145%']);
-  const left = useTransform(scrollYProgress, [0, 0.1], ['0%', '-77%']);
-  const top = useTransform(scrollYProgress, [0, 0.1], ['0%', '-19%']);
+  const width = useTransform(scrollYProgress, [0, 0.1], ["100%", "254%"]);
+  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "145%"]);
+  const left = useTransform(scrollYProgress, [0, 0.1], ["0%", "-77%"]);
+  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-19%"]);
   return (
     <motion.div
       style={{ width, height, left, top }}

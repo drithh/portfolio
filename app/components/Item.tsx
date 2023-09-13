@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useRef } from "react";
+import { motion } from "framer-motion";
 
 interface ItemProps {
   item: string;
@@ -14,7 +14,7 @@ export const Item = (props: ItemProps) => {
     <button
       onClick={onClick}
       className={`${
-        item === 'experience' ? 'hidden ty:block' : ''
+        item === "experience" ? "hidden ty:block" : ""
       } relative z-0`}
       ref={linkRef}
     >
@@ -40,7 +40,7 @@ const getParrentWidth = (ref: React.RefObject<HTMLButtonElement>) => {
 };
 
 const spring = {
-  type: 'spring',
+  type: "spring",
   stiffness: 500,
   damping: 30,
 };

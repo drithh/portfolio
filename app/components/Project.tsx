@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export const Project = (props: { githubUsername: string; project: string }) => {
   const { githubUsername, project } = props;
@@ -7,12 +7,12 @@ export const Project = (props: { githubUsername: string; project: string }) => {
   const [loading, setLoading] = useState(true);
 
   const convertProjectName = (projectName: string) => {
-    const words = projectName.split('-');
+    const words = projectName.split("-");
     return words
       .map((word) => {
         return `${word[0].toUpperCase()}${word.slice(1)}`;
       })
-      .join(' ');
+      .join(" ");
   };
 
   useEffect(() => {
@@ -52,17 +52,17 @@ export const Project = (props: { githubUsername: string; project: string }) => {
         />
       </div>
       <a
-        href={projectData && projectData.html_url ? projectData.html_url : ''}
+        href={projectData && projectData.html_url ? projectData.html_url : ""}
         target="_blank"
         className="title font-title text-xl font-bold hover:underline md:text-2xl"
         rel="noreferrer"
       >
-        {convertProjectName(project || '')}
+        {convertProjectName(project || "")}
       </a>
       <div className="desc texl-bg text-light-transparent dark:text-dark-transparent">
-        {projectData?.description || ''}
+        {projectData?.description || ""}
       </div>
-      <div className="techs flex flex-row gap-2 flex-wrap">
+      <div className="techs flex flex-row flex-wrap gap-2">
         {projectData?.topics.map((topic: string, index: number) => (
           <div
             key={index}

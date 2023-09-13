@@ -1,8 +1,8 @@
-import '../styles/globals.css';
-import { Inter } from '@next/font/google';
-import Pwa from './Pwa';
+import "../styles/globals.css";
+import { Inter } from "@next/font/google";
+import Pwa from "./Pwa";
 const inter = Inter({
-  variable: '--font-title',
+  variable: "--font-title",
 });
 
 /* eslint-disable @next/next/no-head-element */

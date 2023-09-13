@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Navbar } from './components/Navbar';
-import { Project } from './components/Project';
-import { Experience } from './components/Experience';
+import { useEffect, useState } from "react";
+import { Navbar } from "./components/Navbar";
+import { Project } from "./components/Project";
+import { Experience } from "./components/Experience";
 import {
   FiInstagram,
   FiFacebook,
   FiGithub,
   FiMail,
   FiLinkedin,
-} from 'react-icons/fi';
+} from "react-icons/fi";
 import {
   SiMysql,
   SiLaravel,
@@ -27,104 +27,104 @@ import {
   SiPython,
   SiFastapi,
   SiGo,
-} from 'react-icons/si';
-import { DiGoogleCloudPlatform } from 'react-icons/di';
-import { SlGraduation } from 'react-icons/sl';
-import { IoLogoNodejs, IoCodeSlash } from 'react-icons/io5';
-import { RiVuejsLine } from 'react-icons/ri';
-import { HiOutlineDocumentDownload } from 'react-icons/hi';
+} from "react-icons/si";
+import { DiGoogleCloudPlatform } from "react-icons/di";
+import { SlGraduation } from "react-icons/sl";
+import { IoLogoNodejs, IoCodeSlash } from "react-icons/io5";
+import { RiVuejsLine } from "react-icons/ri";
+import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
   const tech = [
     {
-      name: 'HTML5',
+      name: "HTML5",
       icon: <SiHtml5 />,
     },
     {
-      name: 'CSS3',
+      name: "CSS3",
       icon: <SiCss3 />,
     },
     {
-      name: 'TailwindCSS',
+      name: "TailwindCSS",
       icon: <SiTailwindcss />,
     },
     {
-      name: 'Javascript (ES6+)',
+      name: "Javascript (ES6+)",
       icon: <SiJavascript />,
     },
     {
-      name: 'Typescript',
+      name: "Typescript",
       icon: <SiTypescript />,
     },
     {
-      name: 'NodeJS',
+      name: "NodeJS",
       icon: <IoLogoNodejs />,
     },
     {
-      name: 'React',
+      name: "React",
       icon: <SiReact />,
     },
     {
-      name: 'Vue',
+      name: "Vue",
       icon: <RiVuejsLine />,
     },
     {
-      name: 'PHP',
+      name: "PHP",
       icon: <SiPhp />,
     },
     {
-      name: 'Laravel',
+      name: "Laravel",
       icon: <SiLaravel />,
     },
     {
-      name: 'Python',
+      name: "Python",
       icon: <SiPython />,
     },
     {
-      name: 'FastAPI',
+      name: "FastAPI",
       icon: <SiFastapi />,
     },
     {
-      name: 'GoLang',
+      name: "GoLang",
       icon: <SiGo />,
     },
     {
-      name: 'Git',
+      name: "Git",
       icon: <SiGit />,
     },
     {
-      name: 'Mysql',
+      name: "Mysql",
       icon: <SiMysql />,
     },
     {
-      name: 'Postgresql',
+      name: "Postgresql",
       icon: <SiPostgresql />,
     },
     {
-      name: 'Docker',
+      name: "Docker",
       icon: <SiDocker />,
     },
     {
-      name: 'Google Cloud Platform',
+      name: "Google Cloud Platform",
       icon: <DiGoogleCloudPlatform />,
     },
   ];
-  const githubUsername = 'Drithh';
+  const githubUsername = "Drithh";
   const projects = [
-    'e-commerce-website',
-    'car-rental',
-    'invoice-website',
-    'weather-bayes',
-    'turing-machine',
+    "e-commerce-website",
+    "car-rental",
+    "invoice-website",
+    "weather-bayes",
+    "turing-machine",
   ];
 
   useEffect(() => {
     if (
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+      window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-      setTheme('dark');
+      setTheme("dark");
     }
   }, []);
 
@@ -140,7 +140,7 @@ function App() {
                   Ohh you found me?. Howdy!
                 </div>
                 <div>
-                  My name is{' '}
+                  My name is{" "}
                   <span className="font-bold">Adriel Alfeus Hutabarat</span>,
                   I&apos;m a Junior Web Developer based in Surakarta, Indonesia.
                   I am currently studying at the Sebelas Maret University,
@@ -175,7 +175,7 @@ function App() {
                 <div className="title mb-4 mt-6 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
                   Stack
                 </div>
-                Here are few technologies that are cup of my{' '}
+                Here are few technologies that are cup of my{" "}
                 <span className="line-through">coffee</span> tea
                 <div className="mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] text-light-transparent dark:text-dark-transparent md:grid-cols-3">
                   {tech.map((tech, index) => {
@@ -297,7 +297,7 @@ function App() {
                   Though, I am fairly introverted myself. I do reply to messages
                   as long as my human interaction battery lasts. Coding, work,
                   or even useless stuff, anything is cool. So feel free to
-                  message me on any of my social media or shoot me an{' '}
+                  message me on any of my social media or shoot me an{" "}
                   <a href="mailto:contact@drith.me">email.</a>
                 </div>
                 <div className="mt text-light-transparent dark:text-dark-transparent">
