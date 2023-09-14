@@ -113,10 +113,13 @@ function App() {
   const githubUsername = "Drithh";
   const projects = [
     "e-commerce-website",
-    "car-rental",
-    "invoice-website",
     "weather-bayes",
+    "invoice-website",
+    "car-rental",
     "turing-machine",
+    "gumiwang",
+    "emotion-prediction",
+    "authentication-app",
   ];
 
   useEffect(() => {

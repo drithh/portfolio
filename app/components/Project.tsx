@@ -20,9 +20,6 @@ export const Project = (props: { githubUsername: string; project: string }) => {
       try {
         const response = await fetch(
           `https://api.github.com/repos/${githubUsername}/${project}`
-          // {
-          // cache: 'no-cache',
-          // }
         );
         if (response.status !== 200) {
           setProjectData(null);

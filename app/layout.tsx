@@ -3,6 +3,7 @@ import { Inter } from "@next/font/google";
 import Pwa from "./Pwa";
 const inter = Inter({
   variable: "--font-title",
+  subsets: ["latin-ext"],
 });
 
 /* eslint-disable @next/next/no-head-element */
