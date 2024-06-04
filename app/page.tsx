@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { Navbar } from "./components/navbar";
 import { Project } from "./components/project";
 import { Experience } from "./components/experience";
@@ -34,8 +31,24 @@ import { SlGraduation } from "react-icons/sl";
 import { IoLogoNodejs, IoCodeSlash } from "react-icons/io5";
 import { RiNextjsLine, RiVuejsLine } from "react-icons/ri";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { Repository } from "./types/repo";
 
-function App() {
+const fetchData = async (githubUsername: string, project: string) => {
+  try {
+    const response = await fetch(
+      `https://api.github.com/repos/${githubUsername}/${project}`
+    );
+    if (response.status !== 200) {
+      console.log("Error fetching data");
+    } else {
+      return (await response.json()) as Repository;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+async function App() {
   const tech = [
     {
       name: "HTML5",
@@ -129,6 +142,12 @@ function App() {
     "emotion-prediction",
     "authentication-app",
   ];
+
+  const repositories = await Promise.all(
+    projects.map(async (project) => {
+      return await fetchData(githubUsername, project);
+    })
+  ).then((data) => data.flatMap((d) => (d !== undefined ? [d] : [])));
 
   return (
     <div className={`App `}>
@@ -278,12 +297,8 @@ function App() {
                 </div>
               </div>
               <div className="projects grid grid-cols-1 gap-16 md:grid-cols-2">
-                {projects.map((project, index) => (
-                  <Project
-                    key={index}
-                    githubUsername={githubUsername}
-                    project={project}
-                  />
+                {repositories.map((repository, index) => (
+                  <Project repository={repository} key={repository.id} />
                 ))}
               </div>
               <div className="more mb-8 mt-16 flex place-content-center">
