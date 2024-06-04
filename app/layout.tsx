@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import Pwa from "./pwa";
+import Pwa from "./a_pwa";
 import { ThemeProvider } from "./components/theme-provider";
 const inter = Inter({
   variable: "--font-title",
