@@ -56,14 +56,14 @@ export const Project = (props: { githubUsername: string; project: string }) => {
       >
         {convertProjectName(project || "")}
       </a>
-      <div className="desc texl-bg text-light-transparent dark:text-dark-transparent">
+      <div className="desc texl-bg text-secondary-foreground">
         {projectData?.description || ""}
       </div>
       <div className="techs flex flex-row flex-wrap gap-2">
         {projectData?.topics.map((topic: string, index: number) => (
           <div
             key={index}
-            className="tech rounded-full border border-solid border-dark-background py-1 px-3 text-sm  dark:border-light-background"
+            className="tech rounded-full border border-solid border-border py-1 px-3 text-sm"
           >
             {topic}
           </div>

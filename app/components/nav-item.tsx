@@ -22,7 +22,7 @@ export const Item = (props: ItemProps) => {
         <motion.div
           layoutId="selected"
           style={getParrentWidth(linkRef)}
-          className="absolute  -top-1 -left-[15px] -z-10 block h-8  rounded-full bg-light-background px-4 dark:bg-dark-background ty:h-9 "
+          className="absolute  -top-1 -left-[15px] -z-10 block h-8  rounded-full bg-background px-4 ty:h-9 "
           initial={false}
           transition={spring}
         ></motion.div>

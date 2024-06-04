@@ -1,27 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Item } from "./item";
+import { Item } from "./nav-item";
 import { Background } from "./background-navbar";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const text = ["about", "experience", "project", "contact"];
 
 export const Navbar = () => {
-  // const [theme, setTheme] = useState("light");
-
-  // useEffect(() => {
-  //   if (
-  //     window.matchMedia &&
-  //     window.matchMedia("(prefers-color-scheme: dark)").matches
-  //   ) {
-  //     setTheme("dark");
-  //   }
-  // }, []);
-
-  // const toggleDarkMode = (checked: boolean) => {
-  //   setTheme(checked ? "dark" : "light");
-  // };
+  const { setTheme, theme } = useTheme();
 
   const [selected, setSelected] = useState(text[0]);
   const scrollPosition = (item: string) => {
@@ -49,7 +37,6 @@ export const Navbar = () => {
   useEffect(() => {
     const onScroll = () => {
       const elements = document.querySelectorAll(`section`);
-
       if (elements) {
         elements.forEach((element) => {
           const top = element.getBoundingClientRect().top;
@@ -73,12 +60,12 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="ty:px-4 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 sm:justify-between lg:my-12">
-      <div className="profile hidden lg:block">
+    <nav className="sm:justify-between lg:my-12 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4">
+      <div className="profile md:block hidden">
         <Image src="/avatar.png" alt="profile" width={48} height={48} />
       </div>
 
-      <div className="text-sans ty:text-lg relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6 text-base  font-semibold  transition-all  sm:w-min  lg:py-2">
+      <div className="text-sans sm:w-min lg:py-2 relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6  text-base  font-semibold  transition-all  ty:text-lg">
         <Background />
         {text.map((item, index) => {
           return (
@@ -91,13 +78,13 @@ export const Navbar = () => {
           );
         })}
       </div>
-      <div className="hidden pr-2 sm:block lg:pr-0">
+      <div className="sm:block lg:pr-0 hidden pr-2">
         <DarkModeSwitch
           checked={theme === "dark"}
-          onChange={toggleDarkMode}
+          onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
           sunColor="#F4DC9F"
           moonColor="#F4DC9F"
-          className="h-auto w-10 lg:w-12"
+          className="lg:w-12 h-auto w-10"
         />
       </div>
     </nav>

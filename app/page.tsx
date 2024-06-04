@@ -27,11 +27,12 @@ import {
   SiPython,
   SiFastapi,
   SiGo,
+  SiFramework,
 } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { SlGraduation } from "react-icons/sl";
 import { IoLogoNodejs, IoCodeSlash } from "react-icons/io5";
-import { RiVuejsLine } from "react-icons/ri";
+import { RiNextjsLine, RiVuejsLine } from "react-icons/ri";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 function App() {
@@ -65,6 +66,10 @@ function App() {
       icon: <SiReact />,
     },
     {
+      name: "NextJS",
+      icon: <RiNextjsLine />,
+    },
+    {
       name: "Vue",
       icon: <RiVuejsLine />,
     },
@@ -86,6 +91,10 @@ function App() {
     },
     {
       name: "GoLang",
+      icon: <SiGo />,
+    },
+    {
+      name: "Fiber",
       icon: <SiGo />,
     },
     {
@@ -123,7 +132,7 @@ function App() {
 
   return (
     <div className={`App `}>
-      <div className="body bg-primary text-primary transition-all  motion-reduce:transition-none">
+      <div className="body bg-background text-primary transition-all  motion-reduce:transition-none">
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col font-sans">
           <Navbar />
           <main className="flex flex-col gap-8 px-4 text-lg md:text-xl">
@@ -136,8 +145,8 @@ function App() {
                   My name is{" "}
                   <span className="font-bold">Adriel Alfeus Hutabarat</span>,
                   I&apos;m a Junior Web Developer based in Surakarta, Indonesia.
-                  I am currently studying at the Sebelas Maret University,
-                  Majoring in Computer Science
+                  I just graduated from Sebelas Maret University with a Bachelor
+                  of Computer Science.
                 </div>
                 <div>
                   I&apos;m passionate in the art of web development, both
@@ -156,7 +165,7 @@ function App() {
                 <a
                   target="_blank"
                   href="adriel-alfeus.pdf"
-                  className="border-light-extra-transparent text-light-extra-transparent hover:border-light-text hover:text-light-text dark:border-dark-extra-transparent dark:text-dark-extra-transparent dark:hover:border-dark-text dark:hover:text-dark-text flex w-fit gap-x-2 rounded-lg border px-4 py-2 text-lg transition-all motion-reduce:transition-none"
+                  className="flex w-fit gap-x-2 rounded-lg border border-accent-foreground px-4 py-2 text-lg text-accent-foreground transition-all hover:border-primary hover:text-primary motion-reduce:transition-none"
                 >
                   <div className="text-[1.5rem]">
                     <HiOutlineDocumentDownload />
@@ -165,12 +174,12 @@ function App() {
                 </a>
               </div>
               <div className="tech">
-                <div className="title font-title mb-4 mt-6 text-left text-4xl font-bold tracking-wide md:text-5xl">
+                <div className="title mb-4 mt-6 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
                   Stack
                 </div>
                 Here are few technologies that are cup of my{" "}
                 <span className="line-through">coffee</span> tea
-                <div className="text-light-transparent dark:text-dark-transparent mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] md:grid-cols-3">
+                <div className="mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] text-secondary-foreground md:grid-cols-3">
                   {tech.map((tech, index) => {
                     return (
                       <div
@@ -188,7 +197,7 @@ function App() {
               </div>
             </section>
             <section id="experience" className="text-justify">
-              <div className="title font-title mb-4 mt-16 text-left text-4xl font-bold tracking-wide md:text-5xl">
+              <div className="title mb-4 mt-16 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
                 Education & Work
               </div>
               <div className="mt-8 flex flex-col">
@@ -201,17 +210,16 @@ function App() {
                       <div className="">
                         Sebelas Maret University School ERP Project
                       </div>
-                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
+                      <ul className="list-disc pl-6 text-secondary-foreground">
+                        <li>Fullstack Developer Using Golang and ReactJS</li>
                         <li>
-                          Developed Backoffice for School ERP Using Laravel
+                          Modernized Frontend application by introduced
+                          typescript, tanstack-query, vite for better
+                          performance and developer experience
                         </li>
                         <li>
-                          Developed Frontend application for School ERP Using
-                          ReactJS
-                        </li>
-                        <li>
-                          Developed Backend application for School ERP Using
-                          Golang
+                          Introuduced OAS for better API documentation and tight
+                          coupling between frontend and backend
                         </li>
                       </ul>
                     </>
@@ -224,13 +232,14 @@ function App() {
                   description={
                     <>
                       <div className="">P!NGFEST2021</div>
-                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
-                        <li>Designed Home UI for website and mobile view</li>
+                      <ul className="list-disc  pl-6 text-secondary-foreground">
                         <li>
-                          Implemented UI design using Raw HTML, CSS, and JS
+                          Designed & Implemented Home UI for website and mobile
+                          view
                         </li>
                         <li>
-                          Improved User Experience by adding some animations
+                          Improved User Experience by beautifying the website
+                          with animations
                         </li>
                       </ul>
                     </>
@@ -239,13 +248,20 @@ function App() {
                 <Experience
                   icon={<SlGraduation />}
                   title="College"
-                  date="July 2020 - Present"
+                  date="July 2020 - June 2024"
                   description={
                     <>
-                      <div className="">Sebelas Maret University</div>
-                      <div className="text-light-transparent dark:text-dark-transparent">
-                        Bachelor of Computer Science, Currently in 3rd year
+                      <div className="">
+                        Sebelas Maret University, Bachelor of Computer Science
+                        (3.92)
                       </div>
+                      <ul className="list-disc  pl-6 text-secondary-foreground">
+                        <li>Lecture assistant for Programming Concepts Lab</li>
+                        <li>Lecture assistant for Web Programming Lab</li>
+                        <li>
+                          Research Assistant in the field of Federated Learning
+                        </li>
+                      </ul>
                     </>
                   }
                 />
@@ -253,10 +269,10 @@ function App() {
             </section>
             <section id="project" className="section mt-20 text-justify">
               <div className="header mb-20 mt-4 flex flex-col place-content-center place-items-center gap-y-2">
-                <div className="title  font-title text-center text-4xl font-bold md:text-5xl">
+                <div className="title  text-center font-title text-4xl font-bold md:text-5xl">
                   Projects
                 </div>
-                <div className="desc text-light-transparent dark:text-dark-transparent">
+                <div className="desc text-secondary-foreground ">
                   A couple of my favorite projects I have built alone or with
                   someone
                 </div>
@@ -275,7 +291,7 @@ function App() {
                   href={`https://github.com/${githubUsername}?tab=repositories`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent text-xl md:text-2xl"
+                  className="text-xl text-accent-foreground hover:text-secondary-foreground md:text-2xl"
                 >
                   See more on Github
                 </a>
@@ -283,24 +299,24 @@ function App() {
             </section>
             <section id="contact" className="section mb-20 text-justify">
               <div className="header mt-12 flex flex-col place-content-start place-items-start gap-y-2">
-                <div className="title font-title mb-4 text-left text-4xl font-bold tracking-wider md:text-5xl">
+                <div className="title mb-4 text-left font-title text-4xl font-bold tracking-wider md:text-5xl">
                   Say Hi!
                 </div>
-                <div className="desc text-light-transparent dark:text-dark-transparent">
+                <div className="desc text-secondary-foreground ">
                   Though, I am fairly introverted myself. I do reply to messages
                   as long as my human interaction battery lasts. Coding, work,
                   or even useless stuff, anything is cool. So feel free to
                   message me on any of my social media or shoot me an{" "}
                   <a href="mailto:contact@drith.me">email.</a>
                 </div>
-                <div className="mt text-light-transparent dark:text-dark-transparent">
+                <div className="mt text-secondary-foreground ">
                   Don&apos;t be afraid to contact me!
                 </div>
               </div>
               <div className="contact-list  mt-5 mb-20 flex gap-5 text-2xl md:text-3xl ">
                 <a
                   href="https://www.instagram.com/adrielalfeus/"
-                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  className="text-accent-foreground hover:text-secondary-foreground"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -309,7 +325,7 @@ function App() {
                 </a>
                 <a
                   href="https://www.facebook.com/adrielalfeus/"
-                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  className="text-accent-foreground hover:text-secondary-foreground"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook"
@@ -318,7 +334,7 @@ function App() {
                 </a>
                 <a
                   href="https://www.linkedin.com/in/adrielalfeus/"
-                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  className="text-accent-foreground hover:text-secondary-foreground"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -327,7 +343,7 @@ function App() {
                 </a>
                 <a
                   href="https://github.com/Drithh"
-                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  className="text-accent-foreground hover:text-secondary-foreground"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Github"
@@ -335,8 +351,8 @@ function App() {
                   <FiGithub />
                 </a>
                 <a
-                  href="mailto:contact@drith.me"
-                  className="text-dark-background hover:text-light-transparent dark:text-light-background hover:dark:text-dark-transparent"
+                  href="mailto:adrielafelsu@gmail.com"
+                  className="text-accent-foreground hover:text-secondary-foreground"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Email"
