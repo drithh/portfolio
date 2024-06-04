@@ -1,6 +1,7 @@
 import "../styles/globals.css";
-import { Inter } from "@next/font/google";
-import Pwa from "./Pwa";
+import { Inter } from "next/font/google";
+import Pwa from "./pwa";
+import { ThemeProvider } from "./components/theme-provider";
 const inter = Inter({
   variable: "--font-title",
   subsets: ["latin-ext"],
@@ -18,7 +19,7 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        {/* <meta name="theme-color" content="#000000" /> */}
         <meta name="description" content="Adriel Portfolio" />
         <meta name="language" content="en" />
 
@@ -28,7 +29,14 @@ export default function RootLayout({
         <title>Portfolio</title>
       </head>
       <body>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <Pwa />
         <script
           async

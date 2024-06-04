@@ -27,5 +27,8 @@
     ".next/types/**/*.ts",
     "app/index.tsxa"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "paths": {
+    "@/*": ["./src/*"]
+  }
 }

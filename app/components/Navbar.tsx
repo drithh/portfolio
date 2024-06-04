@@ -1,21 +1,27 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Item } from "./Item";
-import { Background } from "./BackgroundNavbar";
+import { Item } from "./item";
+import { Background } from "./background-navbar";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import Image from "next/image";
 
 const text = ["about", "experience", "project", "contact"];
 
-export const Navbar = (props: {
-  theme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
-}) => {
-  const { theme, setTheme } = props;
+export const Navbar = () => {
+  // const [theme, setTheme] = useState("light");
 
-  const toggleDarkMode = (checked: boolean) => {
-    setTheme(checked ? "dark" : "light");
-  };
+  // useEffect(() => {
+  //   if (
+  //     window.matchMedia &&
+  //     window.matchMedia("(prefers-color-scheme: dark)").matches
+  //   ) {
+  //     setTheme("dark");
+  //   }
+  // }, []);
+
+  // const toggleDarkMode = (checked: boolean) => {
+  //   setTheme(checked ? "dark" : "light");
+  // };
 
   const [selected, setSelected] = useState(text[0]);
   const scrollPosition = (item: string) => {
@@ -67,12 +73,12 @@ export const Navbar = (props: {
   }, []);
 
   return (
-    <nav className="sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4 sm:justify-between lg:my-12">
+    <nav className="ty:px-4 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 sm:justify-between lg:my-12">
       <div className="profile hidden lg:block">
         <Image src="/avatar.png" alt="profile" width={48} height={48} />
       </div>
 
-      <div className="text-sans relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6 text-base font-semibold  transition-all  ty:text-lg  sm:w-min  lg:py-2">
+      <div className="text-sans ty:text-lg relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6 text-base  font-semibold  transition-all  sm:w-min  lg:py-2">
         <Background />
         {text.map((item, index) => {
           return (

@@ -1,5 +1,5 @@
 import { motion, useTransform, useScroll } from "framer-motion";
-import useWindowDimensions from "../utils/WindowDimensions";
+import useWindowDimensions from "../lib/window-dimension";
 
 export const Background = () => {
   const { width } = useWindowDimensions();

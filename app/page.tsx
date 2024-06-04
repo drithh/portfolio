@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Navbar } from "./components/Navbar";
-import { Project } from "./components/Project";
-import { Experience } from "./components/Experience";
+import { Navbar } from "./components/navbar";
+import { Project } from "./components/project";
+import { Experience } from "./components/experience";
 import {
   FiInstagram,
   FiFacebook,
@@ -35,7 +35,6 @@ import { RiVuejsLine } from "react-icons/ri";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 function App() {
-  const [theme, setTheme] = useState("light");
   const tech = [
     {
       name: "HTML5",
@@ -122,24 +121,15 @@ function App() {
     "authentication-app",
   ];
 
-  useEffect(() => {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      setTheme("dark");
-    }
-  }, []);
-
   return (
-    <div className={`App ${theme} `}>
-      <div className="body bg-light-background text-light-text transition-all motion-reduce:transition-none dark:bg-dark-background  dark:text-dark-text">
+    <div className={`App `}>
+      <div className="body bg-primary text-primary transition-all  motion-reduce:transition-none">
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col font-sans">
-          <Navbar theme={theme} setTheme={setTheme} />
+          <Navbar />
           <main className="flex flex-col gap-8 px-4 text-lg md:text-xl">
             <section id="about" className="flex flex-col gap-6 lg:mt-8">
               <div className="flex flex-col gap-2 text-justify">
-                <div className="mb-3 text-xl text-light-text text-opacity-50 dark:text-dark-text  md:text-2xl">
+                <div className="mb-3  text-xl text-primary text-opacity-50  md:text-2xl">
                   Ohh you found me?. Howdy!
                 </div>
                 <div>
@@ -166,7 +156,7 @@ function App() {
                 <a
                   target="_blank"
                   href="adriel-alfeus.pdf"
-                  className="flex w-fit gap-x-2 rounded-lg border border-light-extra-transparent px-4 py-2 text-lg text-light-extra-transparent transition-all hover:border-light-text hover:text-light-text motion-reduce:transition-none dark:border-dark-extra-transparent dark:text-dark-extra-transparent dark:hover:border-dark-text dark:hover:text-dark-text"
+                  className="border-light-extra-transparent text-light-extra-transparent hover:border-light-text hover:text-light-text dark:border-dark-extra-transparent dark:text-dark-extra-transparent dark:hover:border-dark-text dark:hover:text-dark-text flex w-fit gap-x-2 rounded-lg border px-4 py-2 text-lg transition-all motion-reduce:transition-none"
                 >
                   <div className="text-[1.5rem]">
                     <HiOutlineDocumentDownload />
@@ -175,12 +165,12 @@ function App() {
                 </a>
               </div>
               <div className="tech">
-                <div className="title mb-4 mt-6 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
+                <div className="title font-title mb-4 mt-6 text-left text-4xl font-bold tracking-wide md:text-5xl">
                   Stack
                 </div>
                 Here are few technologies that are cup of my{" "}
                 <span className="line-through">coffee</span> tea
-                <div className="mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] text-light-transparent dark:text-dark-transparent md:grid-cols-3">
+                <div className="text-light-transparent dark:text-dark-transparent mt-5 grid max-w-[48rem] grid-cols-2 gap-y-4 text-[1.7rem] md:grid-cols-3">
                   {tech.map((tech, index) => {
                     return (
                       <div
@@ -198,7 +188,7 @@ function App() {
               </div>
             </section>
             <section id="experience" className="text-justify">
-              <div className="title mb-4 mt-16 text-left font-title text-4xl font-bold tracking-wide md:text-5xl">
+              <div className="title font-title mb-4 mt-16 text-left text-4xl font-bold tracking-wide md:text-5xl">
                 Education & Work
               </div>
               <div className="mt-8 flex flex-col">
@@ -211,7 +201,7 @@ function App() {
                       <div className="">
                         Sebelas Maret University School ERP Project
                       </div>
-                      <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
+                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
                         <li>
                           Developed Backoffice for School ERP Using Laravel
                         </li>
@@ -234,7 +224,7 @@ function App() {
                   description={
                     <>
                       <div className="">P!NGFEST2021</div>
-                      <ul className="list-disc pl-6 text-light-transparent dark:text-dark-transparent">
+                      <ul className="text-light-transparent dark:text-dark-transparent list-disc pl-6">
                         <li>Designed Home UI for website and mobile view</li>
                         <li>
                           Implemented UI design using Raw HTML, CSS, and JS
@@ -263,7 +253,7 @@ function App() {
             </section>
             <section id="project" className="section mt-20 text-justify">
               <div className="header mb-20 mt-4 flex flex-col place-content-center place-items-center gap-y-2">
-                <div className="title  text-center font-title text-4xl font-bold md:text-5xl">
+                <div className="title  font-title text-center text-4xl font-bold md:text-5xl">
                   Projects
                 </div>
                 <div className="desc text-light-transparent dark:text-dark-transparent">
@@ -285,7 +275,7 @@ function App() {
                   href={`https://github.com/${githubUsername}?tab=repositories`}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xl text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent md:text-2xl"
+                  className="text-light-extra-transparent hover:text-light-transparent dark:text-dark-extra-transparent hover:dark:text-dark-transparent text-xl md:text-2xl"
                 >
                   See more on Github
                 </a>
@@ -293,7 +283,7 @@ function App() {
             </section>
             <section id="contact" className="section mb-20 text-justify">
               <div className="header mt-12 flex flex-col place-content-start place-items-start gap-y-2">
-                <div className="title mb-4 text-left font-title text-4xl font-bold tracking-wider md:text-5xl">
+                <div className="title font-title mb-4 text-left text-4xl font-bold tracking-wider md:text-5xl">
                   Say Hi!
                 </div>
                 <div className="desc text-light-transparent dark:text-dark-transparent">
