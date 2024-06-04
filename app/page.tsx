@@ -1,6 +1,6 @@
-import { Navbar } from "./components/a_navbar";
-import { Project } from "./components/a_project";
-import { Experience } from "./components/a_experience";
+import { Navbar } from "./components/navbar";
+import { Project } from "./components/project";
+import { Experience } from "./components/experience";
 import {
   FiInstagram,
   FiFacebook,

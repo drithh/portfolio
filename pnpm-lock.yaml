@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@testing-library/jest-dom':
-        specifier: ^5.16.4
+        specifier: ^5.16.5
         version: 5.16.5
       '@testing-library/react':
-        specifier: ^13.3.0
+        specifier: ^13.4.0
         version: 13.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@testing-library/user-event':
         specifier: ^13.5.0
@@ -21,13 +21,13 @@ importers:
         specifier: ^27.5.2
         version: 27.5.2
       '@types/node':
-        specifier: ^16.11.44
+        specifier: ^16.18.11
         version: 16.18.11
       '@types/react':
-        specifier: ^18.0.15
+        specifier: ^18.0.27
         version: 18.0.27
       '@types/react-dom':
-        specifier: ^18.0.6
+        specifier: ^18.0.10
         version: 18.0.10
       class-variance-authority:
         specifier: ^0.7.0
@@ -63,10 +63,10 @@ importers:
         specifier: ^5.2.1
         version: 5.2.1(react@18.3.1)
       react-router-dom:
-        specifier: ^6.3.0
+        specifier: ^6.7.0
         version: 6.7.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-scroll:
-        specifier: ^1.8.7
+        specifier: ^1.8.9
         version: 1.8.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-toggle-dark-mode:
         specifier: ^1.1.1
@@ -81,23 +81,23 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.2.4(postcss@8.4.21))
       typescript:
-        specifier: ^4.7.4
+        specifier: ^4.9.4
         version: 4.9.4
       web-vitals:
         specifier: ^2.1.4
         version: 2.1.4
     devDependencies:
       '@types/react-scroll':
-        specifier: ^1.8.3
+        specifier: ^1.8.6
         version: 1.8.6
       autoprefixer:
-        specifier: ^10.4.7
+        specifier: ^10.4.13
         version: 10.4.13(postcss@8.4.21)
       eslint:
-        specifier: ^8.5.0
+        specifier: ^8.32.0
         version: 8.32.0
       postcss:
-        specifier: ^8.4.14
+        specifier: ^8.4.21
         version: 8.4.21
       prettier:
         specifier: ^2.8.3
@@ -106,7 +106,7 @@ importers:
         specifier: ^0.1.13
         version: 0.1.13(prettier@2.8.3)
       tailwindcss:
-        specifier: ^3.1.6
+        specifier: ^3.2.4
         version: 3.2.4(postcss@8.4.21)
 
 packages:
@@ -2260,9 +2260,6 @@ packages:
   camelcase@6.3.0:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
-
-  caniuse-lite@1.0.30001447:
-    resolution: {integrity: sha512-bdKU1BQDPeEXe9A39xJnGtY0uRq/z5osrnXUw0TcK+EYno45Y+U7QU9HhHEyzvMDffpYadFXi3idnSNkcwLkTw==}
 
   caniuse-lite@1.0.30001627:
     resolution: {integrity: sha512-4zgNiB8nTyV/tHhwZrFs88ryjls/lHiqFhrxCW4qSTeuRByBVnPYpDInchOIySWknznucaf31Z4KYqjfbrecVw==}
@@ -8113,7 +8110,7 @@ snapshots:
   autoprefixer@10.4.13(postcss@8.4.21):
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001447
+      caniuse-lite: 1.0.30001627
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -8232,7 +8229,7 @@ snapshots:
 
   browserslist@4.21.4:
     dependencies:
-      caniuse-lite: 1.0.30001447
+      caniuse-lite: 1.0.30001627
       electron-to-chromium: 1.4.284
       node-releases: 2.0.8
       update-browserslist-db: 1.0.10(browserslist@4.21.4)
@@ -8298,8 +8295,6 @@ snapshots:
   camelcase@5.3.1: {}
 
   camelcase@6.3.0: {}
-
-  caniuse-lite@1.0.30001447: {}
 
   caniuse-lite@1.0.30001627: {}
 
@@ -8842,7 +8837,7 @@ snapshots:
       eslint: 8.32.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.32.0))(eslint@8.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.32.0))(eslint@8.32.0))(eslint@8.32.0)
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.32.0)
       eslint-plugin-react: 7.34.2(eslint@8.32.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.32.0)
@@ -8866,7 +8861,7 @@ snapshots:
       enhanced-resolve: 5.17.0
       eslint: 8.32.0
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.32.0))(eslint@8.32.0))(eslint@8.32.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.32.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.32.0))(eslint@8.32.0))(eslint@8.32.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.5
       is-core-module: 2.13.1
@@ -8888,7 +8883,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1)(eslint@8.32.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.32.0)(typescript@4.9.4))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.32.0))(eslint@8.32.0))(eslint@8.32.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
