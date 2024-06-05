@@ -230,15 +230,18 @@ async function App() {
                         Sebelas Maret University School ERP Project
                       </div>
                       <ul className="list-disc pl-6 text-secondary-foreground">
-                        <li>Fullstack Developer Using Golang and ReactJS</li>
                         <li>
-                          Modernized Frontend application by introduced
-                          typescript, tanstack-query, vite for better
+                          Fullstack Developer specializing in Golang and ReactJS
+                        </li>
+                        <li>
+                          Modernized the frontend application by introducing
+                          TypeScript, Tanstack Query, and Vite to enhance
                           performance and developer experience
                         </li>
                         <li>
-                          Introuduced OAS for better API documentation and tight
-                          coupling between frontend and backend
+                          Introduced OpenAPI Specification (OAS) for improved
+                          API documentation and tighter coupling between
+                          frontend and backend
                         </li>
                       </ul>
                     </>
