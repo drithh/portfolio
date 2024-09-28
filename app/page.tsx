@@ -163,9 +163,9 @@ async function App() {
                 <div>
                   My name is{" "}
                   <span className="font-bold">Adriel Alfeus Hutabarat</span>,
-                  I&apos;m a Junior Web Developer based in Surakarta, Indonesia.
-                  I just graduated from Sebelas Maret University with a Bachelor
-                  of Computer Science.
+                  I&apos;m a Web Developer based in Bekasi, Indonesia. I just
+                  graduated from Sebelas Maret University with a Bachelor of
+                  Computer Science.
                 </div>
                 <div>
                   I&apos;m passionate in the art of web development, both
