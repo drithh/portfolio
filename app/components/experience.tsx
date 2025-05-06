@@ -16,7 +16,7 @@ export const Experience = (props: props) => {
       <div className="flex flex-col gap-y-2 border-l-accent-foreground sm:ml-[0.9rem] sm:border-l-2 sm:pl-[2.1rem]">
         <div className="title text-xl md:text-2xl">{title}</div>
         <div className="date text-accent-foreground">{date}</div>
-        <div className="desc max-w-xl text-justify text-secondary-foreground">
+        <div className="desc max-w-2xl text-justify text-secondary-foreground">
           {description}
         </div>
       </div>
