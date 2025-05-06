@@ -1,4 +1,5 @@
 const withPWAInit = require("next-pwa");
+const { withContentlayer } = require("next-contentlayer");
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -26,6 +27,10 @@ const withPWA = withPWAInit({
 });
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  experimental: {
+    mdxRs: true,
+  }
+};
 
-module.exports = withPWA(nextConfig);
+module.exports = withContentlayer(withPWA(nextConfig));

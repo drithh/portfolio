@@ -13,7 +13,7 @@ export const Navbar = () => {
   const { selectedSection, scrollToSection } = useScrollSpy(text);
 
   return (
-    <nav className="sm:justify-between lg:my-12 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4">
+    <nav className="text-primary-foreground sm:justify-between lg:my-12 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4">
       <div className="profile md:block hidden">
         <Image src="/avatar.png" alt="profile" width={48} height={48} />
       </div>

@@ -14,21 +14,24 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./app/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/index.tsxa"
+    "app/index.tsxa",
+    ".contentlayer/generated"
   ],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@/*": ["./src/*"]
-  }
+  "exclude": ["node_modules"]
 }

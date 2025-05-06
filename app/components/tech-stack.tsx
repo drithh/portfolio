@@ -14,12 +14,21 @@ import {
   SiPython,
   SiFastapi,
   SiGo,
+  SiCloudflare,
+  SiNestjs,
+  SiAstro,
+  SiRabbitmq,
+  SiNatsdotio,
+  SiRedis,
+  SiExpress,
+  SiPuppeteer
 } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { IoLogoNodejs } from "react-icons/io5";
 import { RiNextjsLine, RiVuejsLine } from "react-icons/ri";
 
 const tech = [
+  // Frontend Core
   {
     name: "HTML5",
     icon: <SiHtml5 />,
@@ -32,6 +41,8 @@ const tech = [
     name: "TailwindCSS",
     icon: <SiTailwindcss />,
   },
+
+  // Core Programming Languages
   {
     name: "Javascript (ES6+)",
     icon: <SiJavascript />,
@@ -40,10 +51,8 @@ const tech = [
     name: "Typescript",
     icon: <SiTypescript />,
   },
-  {
-    name: "NodeJS",
-    icon: <IoLogoNodejs />,
-  },
+
+  // Frontend Frameworks
   {
     name: "React",
     icon: <SiReact />,
@@ -55,6 +64,24 @@ const tech = [
   {
     name: "Vue",
     icon: <RiVuejsLine />,
+  },
+  {
+    name: "Astro",
+    icon: <SiAstro />,
+  },
+
+  // Backend Languages & Frameworks
+  {
+    name: "NodeJS",
+    icon: <IoLogoNodejs />,
+  },
+  {
+    name: "Express",
+    icon: <SiExpress />,
+  },
+  {
+    name: "NestJS",
+    icon: <SiNestjs />,
   },
   {
     name: "PHP",
@@ -73,17 +100,15 @@ const tech = [
     icon: <SiFastapi />,
   },
   {
-    name: "GoLang",
+    name: "Go",
     icon: <SiGo />,
   },
   {
     name: "Fiber",
     icon: <SiGo />,
   },
-  {
-    name: "Git",
-    icon: <SiGit />,
-  },
+
+  // Databases & Caching
   {
     name: "Mysql",
     icon: <SiMysql />,
@@ -93,12 +118,38 @@ const tech = [
     icon: <SiPostgresql />,
   },
   {
+    name: "Redis",
+    icon: <SiRedis />,
+  },
+
+  // Message Queues
+  {
+    name: "Nats",
+    icon: <SiNatsdotio />,
+  },
+
+  // DevOps & Cloud
+  {
+    name: "Git",
+    icon: <SiGit />,
+  },
+  {
     name: "Docker",
     icon: <SiDocker />,
   },
   {
     name: "Google Cloud Platform",
     icon: <DiGoogleCloudPlatform />,
+  },
+  {
+    name: "Cloudflare",
+    icon: <SiCloudflare />,
+  },
+
+  // Testing & Automation
+  {
+    name: "Puppeteer",
+    icon: <SiPuppeteer />,
   },
 ];
 

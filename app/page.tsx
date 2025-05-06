@@ -25,7 +25,7 @@ async function App() {
 
   return (
     <div className="App">
-      <div className="body bg-background text-primary transition-all motion-reduce:transition-none">
+      <div className="body bg-background text-secondary-foreground transition-all motion-reduce:transition-none">
         <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col font-sans">
           <Navbar />
           <main className="flex flex-col gap-8 px-4 text-lg md:text-xl">

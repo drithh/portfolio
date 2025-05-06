@@ -21,13 +21,13 @@ export function Project(props: { repository: Repository }) {
           width={800}
           height={450}
           alt={repository.name}
-          className="w-full rounded-3xl"
+          className="w-full rounded-xl"
         />
       </div>
       <a
         href={repository.html_url}
         target="_blank"
-        className="title font-title text-xl font-bold hover:underline md:text-2xl"
+        className="title font-title text-xl font-semibold hover:underline md:text-2xl"
         rel="noreferrer"
       >
         {convertProjectName(repository.name || "")}
