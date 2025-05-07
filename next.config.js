@@ -1,15 +1,12 @@
 const withPWAInit = require("next-pwa");
-const { withContentlayer } = require("next-contentlayer");
 
 const isDev = process.env.NODE_ENV !== "production";
 
 const withPWA = withPWAInit({
   dest: "public",
   disable: isDev,
-
   exclude: [
-    // add buildExcludes here
-    ({ asset, compilation }) => {
+    ({ asset }) => {
       if (
         asset.name.startsWith("server/") ||
         asset.name.match(
@@ -26,11 +23,3 @@ const withPWA = withPWAInit({
   ],
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    mdxRs: true,
-  }
-};
-
-module.exports = withContentlayer(withPWA(nextConfig));

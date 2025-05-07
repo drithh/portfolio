@@ -1,7 +1,7 @@
 "use client";
 import { Item } from "./nav-item";
 import { Background } from "./background-navbar";
-import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { DarkModeToggle } from "./dark-mode-toggle";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useScrollSpy } from "../hooks/use-scroll-spy";
@@ -32,12 +32,11 @@ export const Navbar = () => {
         })}
       </div>
       <div className="sm:block lg:pr-0 hidden pr-2">
-        <DarkModeSwitch
-          checked={theme === "dark"}
-          onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+        <DarkModeToggle
           sunColor="#F4DC9F"
           moonColor="#F4DC9F"
-          className="lg:w-12 h-auto w-10"
+          size={28}
+          style={{ width: 'auto' }}
         />
       </div>
     </nav>

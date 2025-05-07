@@ -32,7 +32,7 @@ export const Item = (props: ItemProps) => {
   );
 };
 
-const getParrentWidth = (ref: React.RefObject<HTMLButtonElement>) => {
+const getParrentWidth = (ref: React.RefObject<HTMLButtonElement | null>) => {
   if (ref.current) {
     const { offsetWidth } = ref.current;
     return { width: offsetWidth + 30 };
