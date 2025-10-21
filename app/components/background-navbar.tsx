@@ -20,7 +20,7 @@ const BackgroundTiny = () => {
   return (
     <motion.div
       style={{ top }}
-      className="fixed inset-0 -z-10 mx-auto h-[2.75rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      className="fixed inset-0 -z-10 mx-auto h-[2.75rem] w-[92vw] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };
@@ -31,42 +31,53 @@ const BackgroundSmall = () => {
   return (
     <motion.div
       style={{ top }}
-      className="fixed inset-0 -z-10 mx-auto h-[3rem] w-[92vw]  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      className="fixed inset-0 -z-10 mx-auto h-[3rem] w-[95vw] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };
 
 const BackgroundMedium = (props: { widthScreen: number }) => {
   const { widthScreen } = props;
-  const maxWidth =
-    94.5 +
-    Math.ceil(widthScreen - 640) / (110 - Math.ceil(widthScreen - 640) / 100);
   const { scrollYProgress } = useScroll();
+
+  // Start with a reasonable width and expand much wider on scroll
   const width = useTransform(
     scrollYProgress,
     [0, 0.1],
-    ["40vw", `${maxWidth}vw`]
+    ["400px", `${window.innerWidth * 0.98}px`], // Much wider expansion
   );
-  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "115%"]);
-  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-7.5%"]);
+
+  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "120%"]);
+  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-10%"]);
+
+  // Center horizontally for perfect symmetry
+  const left = useTransform(scrollYProgress, [0, 0.1], ["50%", "50%"]);
+  const x = useTransform(scrollYProgress, [0, 0.1], ["-50%", "-50%"]);
+
   return (
     <motion.div
-      style={{ width, height, top }}
-      className="absolute inset-0 -z-10 mx-auto max-h-[4rem] min-w-full  rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      style={{ width, height, top, left, x }}
+      className="absolute -z-10 max-h-[4rem] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };
 
 const BackgroundLarge = () => {
   const { scrollYProgress } = useScroll();
-  const width = useTransform(scrollYProgress, [0, 0.1], ["100%", "254%"]);
-  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "145%"]);
-  const left = useTransform(scrollYProgress, [0, 0.1], ["0%", "-77%"]);
-  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-19%"]);
+
+  // Start with a good width and expand much wider on scroll
+  const width = useTransform(scrollYProgress, [0, 0.1], ["25rem", "64rem"]); // Even wider expansion
+  const height = useTransform(scrollYProgress, [0, 0.1], ["100%", "130%"]);
+  const top = useTransform(scrollYProgress, [0, 0.1], ["0%", "-15%"]);
+
+  // Center horizontally for perfect symmetry
+  const left = useTransform(scrollYProgress, [0, 0.1], ["50%", "50%"]);
+  const x = useTransform(scrollYProgress, [0, 0.1], ["-50%", "-50%"]);
+
   return (
     <motion.div
-      style={{ width, height, left, top }}
-      className="absolute inset-0 -z-10 mx-auto max-h-[4rem] min-w-fit max-w-[64rem] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
+      style={{ width, height, top, left, x }}
+      className="absolute -z-10 max-h-[4rem] rounded-full backdrop-blur-sm [@supports(backdrop-filter:blur(2px))]:bg-zinc-200/[90%] dark:[@supports(backdrop-filter:blur(2px))]:bg-zinc-800/[95%]"
     ></motion.div>
   );
 };

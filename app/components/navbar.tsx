@@ -31,11 +31,11 @@ export const Navbar = () => {
           );
         })}
       </div>
-      <div className="hidden pr-2 sm:block lg:pr-0">
+      <div className="hidden w-12 pr-2 sm:block lg:pr-0">
         <DarkModeToggle
           sunColor="#F4DC9F"
           moonColor="#F4DC9F"
-          size={28}
+          size={40}
           style={{ width: "auto" }}
         />
       </div>

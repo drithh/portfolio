@@ -89,7 +89,7 @@ export const DarkModeToggle: React.FC<Props> = ({
   };
 
   return (
-    <div style={style}>
+    <div className='mx-auto' style={style}>
       <AnimatedSvg {...svgContainerProps}>
         <defs>
           <mask id={uniqueId}>
