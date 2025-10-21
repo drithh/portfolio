@@ -21,11 +21,16 @@ import {
   SiNatsdotio,
   SiRedis,
   SiExpress,
-  SiPuppeteer
+  SiPuppeteer,
+  SiGraphql,
+  SiElasticsearch,
+  SiVite,
+  SiOpenai,
 } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { IoLogoNodejs } from "react-icons/io5";
 import { RiNextjsLine, RiVuejsLine } from "react-icons/ri";
+import { TbBrandGoogle } from "react-icons/tb";
 
 const tech = [
   // Frontend Core
@@ -68,6 +73,10 @@ const tech = [
   {
     name: "Astro",
     icon: <SiAstro />,
+  },
+  {
+    name: "Plasmic",
+    icon: <SiReact />,
   },
 
   // Backend Languages & Frameworks
@@ -118,6 +127,10 @@ const tech = [
     icon: <SiPostgresql />,
   },
   {
+    name: "PostGIS",
+    icon: <SiPostgresql />,
+  },
+  {
     name: "Redis",
     icon: <SiRedis />,
   },
@@ -126,6 +139,42 @@ const tech = [
   {
     name: "Nats",
     icon: <SiNatsdotio />,
+  },
+  {
+    name: "BullMQ",
+    icon: <SiRabbitmq />,
+  },
+
+  // APIs & Data
+  {
+    name: "GraphQL",
+    icon: <SiGraphql />,
+  },
+
+  // Build Tools & Development
+  {
+    name: "Vite",
+    icon: <SiVite />,
+  },
+  {
+    name: "Tanstack Query",
+    icon: <SiReact />,
+  },
+
+  // Monitoring & Observability
+  {
+    name: "Elasticsearch",
+    icon: <SiElasticsearch />,
+  },
+
+  // AI & Machine Learning
+  {
+    name: "OpenAI",
+    icon: <SiOpenai />,
+  },
+  {
+    name: "Gemini",
+    icon: <TbBrandGoogle />,
   },
 
   // DevOps & Cloud
@@ -165,7 +214,7 @@ export const TechStack = () => {
         {tech.map((tech, index) => {
           return (
             <div key={index} className="tech flex items-center gap-x-3">
-              <div className="tech-icon ">{tech.icon}</div>
+              <div className="tech-icon">{tech.icon}</div>
               <span className="tech-name font-title text-[1.05rem] font-light">
                 {tech.name}
               </span>
