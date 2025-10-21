@@ -13,12 +13,12 @@ export const Navbar = () => {
   const { selectedSection, scrollToSection } = useScrollSpy(text);
 
   return (
-    <nav className="text-primary-foreground sm:justify-between lg:my-12 sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 ty:px-4">
-      <div className="profile md:block hidden">
+    <nav className="sticky top-2 z-10 my-8 flex h-fit w-full items-center justify-center py-2 text-primary-foreground ty:px-4 sm:justify-between lg:my-12">
+      <div className="profile hidden md:block">
         <Image src="/avatar.png" alt="profile" width={48} height={48} />
       </div>
 
-      <div className="text-sans sm:w-min lg:py-2 relative flex w-[90vw] place-content-between items-center gap-8 py-[6px] px-6  text-base  font-semibold  transition-all  ty:text-lg">
+      <div className="text-sans relative flex w-[90vw] place-content-between items-center gap-8 px-6 py-[6px] text-base font-semibold transition-all ty:text-lg sm:w-min lg:py-2">
         <Background />
         {text.map((item, index) => {
           return (
@@ -31,12 +31,12 @@ export const Navbar = () => {
           );
         })}
       </div>
-      <div className="sm:block lg:pr-0 hidden pr-2">
+      <div className="hidden pr-2 sm:block lg:pr-0">
         <DarkModeToggle
           sunColor="#F4DC9F"
           moonColor="#F4DC9F"
           size={28}
-          style={{ width: 'auto' }}
+          style={{ width: "auto" }}
         />
       </div>
     </nav>

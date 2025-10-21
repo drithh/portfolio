@@ -5,9 +5,9 @@ export const Background = () => {
   const { width } = useWindowDimensions();
   if (width > 1024) {
     return <BackgroundLarge />;
-  } else if (width > 640) {
+  } else if (width > 768) {
     return <BackgroundMedium widthScreen={width} />;
-  } else if (width > 400) {
+  } else if (width > 640) {
     return <BackgroundSmall />;
   } else {
     return <BackgroundTiny />;

@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={`${inter.variable}`}>
+    <html className={`${inter.variable}`} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
