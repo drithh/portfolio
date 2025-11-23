@@ -2,6 +2,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Pwa from "./pwa";
 import { ThemeProvider } from "./components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({
   variable: "--font-title",
   subsets: ["latin-ext"],
@@ -44,6 +46,8 @@ export default function RootLayout({
           src="https://analytics.umami.is/script.js"
           data-website-id="37c6ea09-2eb8-4e44-abd5-71980ef5b207"
         ></script>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
