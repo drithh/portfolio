@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const useScrollSpy = (sections: string[]) => {
   const [selectedSection, setSelectedSection] = useState(sections[0]);
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeout = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const scrollToSection = (section: string) => {
+    setSelectedSection(section);
+    isProgrammaticScroll.current = true;
+    clearTimeout(scrollTimeout.current);
+    scrollTimeout.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
+
     const element = document.querySelector(`#${section}`);
     if (element) {
       if (section === sections[0]) { // Usually 'about' section
@@ -27,6 +36,7 @@ export const useScrollSpy = (sections: string[]) => {
 
   useEffect(() => {
     const onScroll = () => {
+      if (isProgrammaticScroll.current) return;
       const elements = document.querySelectorAll("section");
       if (elements) {
         elements.forEach((element) => {
