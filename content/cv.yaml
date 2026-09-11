@@ -1,0 +1,140 @@
+cv:
+  name: Adriel Alfeus Hutabarat
+  headline: Software Engineer
+  location: Bekasi, Jawa Barat
+  email: adrielalfeus@gmail.com
+  phone: "+6281293586210"
+  website: https://adriel.id
+  social_networks:
+    - network: GitHub
+      username: drithh
+  custom_connections:
+  sections:
+    summary:
+      - Software Engineer with expertise in Go, TypeScript, and Python, specializing in building high-performance backend systems, spatial data infrastructure, and scalable web applications. Proven track record of optimizing platforms for peak traffic, automating complex data pipelines, and integrating AI-driven insights to drive measurable business value.
+    professional_experience:
+      - company: PT Cakra Jala Teknologi
+        position: Backend Engineer
+        date:
+        start_date: 2026-01
+        end_date: present
+        location:
+        summary:
+        highlights:
+          - "Architected a **full-stack Employee Portal and Logbook** using Next.js, TypeScript, and PostgreSQL, featuring RBAC, meeting minutes management, automated PDF reporting, and an interactive bilingual calendar to **manage internal company operations**."
+          - "Architected an **offline-first POS platform** in Go, bridging cloud PostgreSQL and local SQLite via CGo and Protobuf to **ensure zero checkout downtime**."
+          - "Built a **high-concurrency transaction engine** managing real-time order workflows, dynamic pricing, and immutable financial audits, integrated directly with **Epson LX-310 printers** for reliable receipt generation."
+          - "Engineered a **multi-tenant security framework** featuring granular RBAC, store isolation, and hardware terminal key provisioning to **secure multi-branch operations**."
+      - company: Idea Comindo
+        position: Software Engineer
+        date:
+        start_date: 2025-06
+        end_date: 2026-02
+        location:
+        summary:
+        highlights:
+          - "Architected and built a full-stack geospatial system featuring a React and TailwindCSS admin interface for user and dataset management, powered by a PostGIS and NestJS GraphQL backend utilizing Redis, Dataloader, and context-based field filtering for optimized spatial operations."
+          - "Developed a Python scraping platform to automate the collection and ingestion of **20GB+** of census and demographic datasets across **dozens of countries**, eliminating **4 to 8 hours** of manual data processing per week."
+          - "Implemented an AI-driven question answering and summarization system using Gemini and OpenAI, unlocking the ability to extract natural-language insights from complex geospatial and demographic data."
+      - company: PT Datasintesa Teknologi Nusantara
+        position: Backend Engineer
+        date:
+        start_date: 2024-06
+        end_date: 2025-06
+        location:
+        summary:
+        highlights:
+          - "Develop and maintain a BTS monitoring system for **5,800+ sites** across multiple consortiums, tracking diverse KPI values and handling high data payloads with NestJS, TypeScript, and PostgreSQL."
+          - "Manage dozens of scheduled Python scripts (cron jobs) for data extraction from various BTS formats that uses HTTP or SFTP depending on the vendor."
+          - "Handle asynchronous data exports between NestJS and Python, and integrate BullMQ for job queue management and Elastic APM for performance monitoring."
+    freelance_experience:
+      - company: Itemgame
+        position: Software Engineer
+        date:
+        start_date: 2024-11
+        end_date: 2025-08
+        location:
+        summary:
+        highlights:
+          - "Built a high-performance e-commerce platform for game top-ups using an Astro/TypeScript frontend and Go backend, achieving a **100/100 desktop page load score** and processing **thousands of peak-traffic orders** in **under 1 second**."
+          - "Engineered a highly scalable infrastructure to support peak traffic by containerizing services with Docker and deploying via Cloudflare CDN, and integrating NATS (KV store and job queues) to minimize database latency and ensure seamless service coordination."
+      - company: Pilates Reform
+        position: Software Engineer
+        date:
+        start_date: 2024-05
+        end_date: 2024-08
+        location:
+        summary:
+        highlights:
+          - "Engineered a full-stack studio management platform using Next.js and MySQL, delivering a seamless user experience for package purchases, class bookings, loyalty programs, and milestone tracking."
+          - "Streamlined studio operations by building a custom admin dashboard for data and discount management, and integrated automated WhatsApp notifications to drive user engagement and reduce manual communication overhead."
+      - company: Wijaya Door
+        position: Software Engineer
+        date:
+        start_date: 2024-09
+        end_date: 2024-10
+        location:
+        summary:
+        highlights:
+          - "Developed a Next.js and PostgreSQL portfolio platform featuring an interactive 3D door configurator built with **React Three Fiber**, driving user engagement and significantly accelerating the client's custom inquiry and sales pipeline."
+          - "Integrated Plasmic to streamline UI design, empowering the client with efficient creation, seamless updates, and easy customization of the interface without requiring code changes."
+    internships_and_initiatives:
+      - company: Sebelas Maret University School ERP Project
+        position: Software Engineering Intern
+        date:
+        start_date: 2022-09
+        end_date: 2024-05
+        location:
+        summary:
+        highlights:
+          - "Software Engineer specializing in Go and ReactJS, developing a comprehensive school ERP web platform serving **~450 students and ~17 teachers**, facilitating seamless interactions, task management, grading workflows, and academic tracking."
+          - "Enhancing the web application with TypeScript, Tanstack Query, and Vite for improved performance and developer experience."
+          - "Strengthened API documentation and improved frontend-backend alignment through the introduction of OpenAPI Specification (OAS) with type safety, ensuring a more reliable and seamless development workflow."
+      - company: Bootcamp Startup Campus
+        position: Backend Engineer
+        date:
+        start_date: 2022-08
+        end_date: 2022-12
+        location:
+        summary:
+        highlights:
+          - "Graduated as a top performer in the Backend Engineer Track, contributing exceptional technical expertise to the success of the final project."
+          - "Led the collaboration between the backend and data science teams, ensuring seamless teamwork and achieving a perfect **100/100 score** for the backend contribution, which drove the final project to an outstanding overall score of **95.65**."
+      - company: Himpunan Mahasiswa Informatika UNS
+        position: Staff Technology Department & Frontend Engineer
+        date:
+        start_date: 2021-01
+        end_date: 2022-01
+        location:
+        summary:
+        highlights:
+          - "**PINGFEST2021:** Designed and implemented a responsive web and mobile Home UI for a major annual event, incorporating animations and refined design elements. Collaborated with cross-functional teams to optimize load times, accessibility, and performance to successfully support **thousands of event visitors** with a seamless user experience."
+          - "**IF Week:** Crafted and delivered challenging coding problem sets for IF Commit, boosting student participation and driving technical growth."
+          - "**OSPRODI Orientation:** Led the \"Coding Task\" initiative, mentoring incoming Informatics students and building a strong foundation in their programming skills."
+    education:
+      - institution: Sebelas Maret University
+        area: Computer Science
+        degree: BCS
+        date:
+        start_date: 2020-07
+        end_date: 2024-05
+        location: Surakarta, Jawa Tengah
+        summary:
+        highlights:
+          - "**GPA**: 3.92/4.00"
+          - "Active member of Himpunan Mahasiswa Informatika (Informatics Student Association)."
+          - "Lecture Assistant for Programming Concepts and Web Programming Lab."
+          - "Research Assistant specializing in Federated Learning."
+    core_competencies:
+      - label: Languages & Frameworks
+        details: Proficient in Go, TypeScript, Python, JavaScript, and PHP, with strong backend development experience.
+      - label: Methodologies
+        details: Experienced in modular architecture, clean code practices, and Agile methodologies including Scrum and Kanban.
+      - label: Infrastructure & Tools
+        details: Skilled in Google Cloud Platform (GCP), Docker, and setting up efficient CI/CD pipelines.
+      - label: Data & Messaging
+        details: Hands-on with NATS and Redis for messaging, task queues, and key-value storage, and PostgreSQL for relational data.
+      - label: Monitoring
+        details: Practical experience using Elasticsearch for APM and observability.
+      - label: Version Control
+        details: Strong Git knowledge with collaborative workflows, pull requests, and branching strategies.

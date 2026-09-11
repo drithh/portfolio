@@ -36,9 +36,11 @@
     "sharp": "^0.34.1",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
+    "@types/minimatch": "5.1.2",
     "@types/node": "^22.14.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
