@@ -15,7 +15,7 @@ export default function Pwa() {
         .then((registration) => {
           console.log(
             "Service Worker registration successful with scope: ",
-            registration.scope
+            registration.scope,
           );
         })
         .catch((err) => {

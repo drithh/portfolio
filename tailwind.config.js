@@ -19,8 +19,9 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["GT Walsheim", "sans-serif"],
-        title: "var(--font-title)",
+        sans: ["var(--font-sans)", "GT Walsheim", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        title: ["var(--font-sans)", "GT Walsheim", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
       },
       screens: {
         ty: "420px",

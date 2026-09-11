@@ -24,21 +24,25 @@ async function App() {
   const repositories = await getRepositories(githubUsername, projects);
 
   return (
-    <div className="App">
-      <div className="body bg-background text-secondary-foreground transition-all motion-reduce:transition-none">
-        <div className="mx-auto flex min-h-screen max-w-[64rem] flex-col font-sans">
-          <Navbar />
-          <main className="flex flex-col gap-8 px-4 text-lg md:text-xl">
-            <About />
-            <TechStack />
-            <WorkExperience />
-            <ProjectsSection
-              repositories={repositories}
-              githubUsername={githubUsername}
-            />
-            <Contact />
-          </main>
-        </div>
+    <div className="min-h-screen bg-background text-foreground antialiased selection:bg-foreground selection:text-background">
+      <div className="mx-auto flex min-h-screen max-w-4xl flex-col px-4 sm:px-6">
+        <Navbar />
+        <main className="flex flex-col gap-24 pb-24 pt-4 sm:gap-32 sm:pt-8">
+          <About />
+          <TechStack />
+          <WorkExperience />
+          <ProjectsSection
+            repositories={repositories}
+            githubUsername={githubUsername}
+          />
+          <Contact />
+        </main>
+        <footer className="border-t border-border/60 py-8 text-center font-mono text-xs text-muted-foreground">
+          <p>
+            © {new Date().getFullYear()} Adriel Alfeus Hutabarat. Built with
+            Next.js, React & Tailwind CSS.
+          </p>
+        </footer>
       </div>
     </div>
   );

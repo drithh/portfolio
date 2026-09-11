@@ -15,7 +15,8 @@ export const useScrollSpy = (sections: string[]) => {
 
     const element = document.querySelector(`#${section}`);
     if (element) {
-      if (section === sections[0]) { // Usually 'about' section
+      if (section === sections[0]) {
+        // Usually 'about' section
         window.scrollTo({
           top: 0,
           behavior: "smooth",

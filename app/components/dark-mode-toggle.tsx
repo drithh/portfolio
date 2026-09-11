@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { useSpring, animated, config } from '@react-spring/web';
-import { useTheme } from 'next-themes';
+import * as React from "react";
+import { useSpring, animated, config } from "@react-spring/web";
+import { useTheme } from "next-themes";
 
 // Create animated SVG elements with proper typing
-const AnimatedSvg = animated('svg');
-const AnimatedCircle = animated('circle');
-const AnimatedG = animated('g');
+const AnimatedSvg = animated("svg");
+const AnimatedCircle = animated("circle");
+const AnimatedG = animated("g");
 
 export interface Props {
   style?: React.CSSProperties;
@@ -19,8 +19,8 @@ export interface Props {
 
 export const DarkModeToggle: React.FC<Props> = ({
   size = 24,
-  moonColor = 'white',
-  sunColor = 'black',
+  moonColor = "white",
+  sunColor = "black",
   style,
   className,
 }) => {
@@ -32,21 +32,21 @@ export const DarkModeToggle: React.FC<Props> = ({
     setMounted(true);
   }, []);
 
-  const isDark = theme === 'dark';
+  const isDark = theme === "dark";
 
   const properties = {
     dark: {
       r: 9,
-      transform: 'rotate(40deg)',
-      cx: '50%',
-      cy: '23%',
+      transform: "rotate(40deg)",
+      cx: "50%",
+      cy: "23%",
       opacity: 0,
     },
     light: {
       r: 5,
-      transform: 'rotate(90deg)',
-      cx: '100%',
-      cy: '0%',
+      transform: "rotate(90deg)",
+      cx: "100%",
+      cy: "0%",
       opacity: 1,
     },
   };
@@ -71,35 +71,30 @@ export const DarkModeToggle: React.FC<Props> = ({
   }
 
   const svgContainerProps = {
-    xmlns: 'http://www.w3.org/2000/svg',
+    xmlns: "http://www.w3.org/2000/svg",
     width: size,
     height: size,
-    viewBox: '0 0 24 24',
-    fill: 'none',
+    viewBox: "0 0 24 24",
+    fill: "none",
     strokeWidth: 2,
-    strokeLinecap: 'round' as const,
-    strokeLinejoin: 'round' as const,
-    stroke: 'currentColor',
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    stroke: "currentColor",
     style: {
-      cursor: 'pointer',
+      cursor: "pointer",
       transform,
     },
-    onClick: () => setTheme(isDark ? 'light' : 'dark'),
+    onClick: () => setTheme(isDark ? "light" : "dark"),
     className,
   };
 
   return (
-    <div className='mx-auto' style={style}>
+    <div className="mx-auto" style={style}>
       <AnimatedSvg {...svgContainerProps}>
         <defs>
           <mask id={uniqueId}>
             <rect x="0" y="0" width="100%" height="100%" fill="white" />
-            <AnimatedCircle
-              r="9"
-              fill="black"
-              cx={cx}
-              cy={cy}
-            />
+            <AnimatedCircle r="9" fill="black" cx={cx} cy={cy} />
           </mask>
         </defs>
 

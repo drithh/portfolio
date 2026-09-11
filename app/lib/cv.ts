@@ -61,7 +61,7 @@ export function renderHighlightsToHTML(highlights: string[]): string {
 }
 
 export function mapRawEntryToFormatted(
-  entry: CVExperienceRawEntry
+  entry: CVExperienceRawEntry,
 ): CVFormattedEntry {
   let title = "";
   if (entry.position) {
@@ -105,21 +105,21 @@ export async function getCVExperienceData(): Promise<CVSectionGroup[]> {
         id: "professional",
         title: "Professional Experience",
         entries: (sections.professional_experience || []).map(
-          mapRawEntryToFormatted
+          mapRawEntryToFormatted,
         ),
       },
       {
         id: "freelance",
         title: "Freelance Experience",
         entries: (sections.freelance_experience || []).map(
-          mapRawEntryToFormatted
+          mapRawEntryToFormatted,
         ),
       },
       {
         id: "internships",
         title: "Internships & Initiatives",
         entries: (sections.internships_and_initiatives || []).map(
-          mapRawEntryToFormatted
+          mapRawEntryToFormatted,
         ),
       },
       {

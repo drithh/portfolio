@@ -4,8 +4,8 @@ import {
   FiGithub,
   FiMail,
   FiLinkedin,
+  FiArrowUpRight,
 } from "react-icons/fi";
-
 const socialLinks = [
   {
     icon: <FiInstagram />,
@@ -36,32 +36,52 @@ const socialLinks = [
 
 export const Contact = () => {
   return (
-    <section id="contact" className="section mb-20 text-justify">
-      <div className="header mt-12 flex flex-col place-content-start place-items-start gap-y-2">
-        <div className="title mb-4 text-left font-title text-4xl font-bold tracking-wider md:text-5xl">
+    <section id="contact" className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          [05] // Get In Touch
+        </div>
+        <h2 className="font-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Say Hi!
-        </div>
-        <div className="desc text-secondary-foreground ">
-          Though, I am fairly introverted myself. I do reply to messages as long as
-          my human interaction battery lasts. Coding, work, or even useless stuff,
-          anything is cool. So feel free to message me on any of my social media or
-          shoot me an <a href="mailto:contact@drith.me">email.</a>
-        </div>
-        <div className="mt text-secondary-foreground ">
-          Don&apos;t be afraid to contact me!
+        </h2>
+        <div className="flex max-w-2xl flex-col gap-2 text-base leading-relaxed text-secondary-foreground">
+          <p>
+            Though, I am fairly introverted myself. I do reply to messages as
+            long as my human interaction battery lasts. Coding, work, or even
+            useless stuff, anything is cool. So feel free to message me on any
+            of my social media or shoot me an{" "}
+            <a
+              href="mailto:contact@drith.me"
+              className="font-medium text-foreground underline underline-offset-4 hover:opacity-80"
+            >
+              email.
+            </a>
+          </p>
+          <p className="font-mono text-xs text-muted-foreground">
+            Don&apos;t be afraid to contact me!
+          </p>
         </div>
       </div>
-      <div className="contact-list mt-5 mb-20 flex gap-5 text-2xl md:text-3xl">
-        {socialLinks.map((link, index) => (
+
+      {/* Contact Channels Grid */}
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+        {socialLinks.map((link) => (
           <a
-            key={index}
+            key={link.label}
             href={link.url}
-            className="text-accent-foreground hover:text-secondary-foreground"
             target="_blank"
             rel="noreferrer"
-            aria-label={link.label}
+            className="group flex items-center justify-between rounded-xl border border-border/70 bg-card/40 p-3.5 transition-all duration-200 hover:border-foreground/30 hover:bg-card hover:shadow-sm active:scale-[0.98]"
           >
-            {link.icon}
+            <div className="flex items-center gap-3">
+              <span className="text-xl text-foreground/80 transition-colors group-hover:text-foreground">
+                {link.icon}
+              </span>
+              <span className="font-sans text-sm font-medium text-foreground">
+                {link.label}
+              </span>
+            </div>
+            <FiArrowUpRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
           </a>
         ))}
       </div>
