@@ -41,11 +41,11 @@ const navItems = [
           href={`#${item.id}`}
           data-section={item.id}
           class:list={[
-            "nav-pill relative z-0 items-center rounded-full px-3 py-1 font-sans text-xs font-medium transition-colors sm:px-3.5 sm:py-1.5 sm:text-sm",
+            "nav-pill relative z-0 items-center rounded-full px-3 py-1 font-sans text-xs font-medium transition-colors hover:text-foreground sm:px-3.5 sm:py-1.5 sm:text-sm",
             item.hideOnMobile ? "hidden ty:inline-flex" : "inline-flex",
             item.id === "about"
               ? "active text-foreground font-semibold"
-              : "text-muted-foreground hover:text-foreground",
+              : "text-muted-foreground",
           ]}
         >
           <span
