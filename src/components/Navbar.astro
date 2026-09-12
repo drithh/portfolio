@@ -3,8 +3,8 @@ import DarkModeToggle from "./DarkModeToggle.astro";
 
 const navItems = [
   { id: "about", label: "About" },
-  { id: "experience", label: "Experience", hideOnMobile: true },
-  { id: "stack", label: "Stack" },
+  { id: "stack", label: "Stack", hideOnMobile: true },
+  { id: "experience", label: "Experience" },
   { id: "project", label: "Project" },
   { id: "contact", label: "Contact" },
 ];
@@ -73,16 +73,15 @@ const navItems = [
   (() => {
     const navPills = document.querySelectorAll(".nav-pill");
     const brandLink = document.getElementById("nav-brand");
-    const sectionIds = ["about", "experience", "stack", "project", "contact"];
+    const sectionIds = ["about", "stack", "experience", "project", "contact"];
     let isProgrammaticScroll = false;
     let scrollTimeout = null;
 
     const setActiveSection = (sectionId) => {
       const isMobile = window.innerWidth <= 420;
-      if (isMobile && sectionId === "experience") {
+      if (isMobile && sectionId === "stack") {
         return;
       }
-
       navPills.forEach((pill) => {
         const targetSection = pill.getAttribute("data-section");
         const indicator = pill.querySelector(".nav-indicator");
@@ -194,7 +193,7 @@ const navItems = [
           const isMobile = window.innerWidth <= 420;
 
           visibleEntries.forEach((entry, id) => {
-            if (isMobile && id === "experience") return;
+            if (isMobile && id === "stack") return;
             const top = entry.target.getBoundingClientRect().top;
             const distance = Math.abs(top - 120);
             if (distance < minDistance) {
