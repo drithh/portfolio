@@ -66,14 +66,17 @@ export const About = () => {
           href="/adriel-alfeus.pdf"
           className="group inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2.5 font-sans text-sm font-medium text-background transition-all hover:opacity-90 active:scale-[0.98]"
         >
-          <FiDownload className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+          <FiDownload
+            aria-hidden="true"
+            className="h-4 w-4 transition-transform group-hover:-translate-y-0.5"
+          />
           <span>Download CV</span>
         </a>
         <a
           href="#contact"
           className="inline-flex items-center gap-2 rounded-lg border border-border/80 bg-secondary/30 px-4 py-2.5 font-sans text-sm font-medium text-foreground transition-all hover:border-foreground/20 hover:bg-secondary/70 active:scale-[0.98]"
         >
-          <FiMail className="h-4 w-4 text-muted-foreground" />
+          <FiMail aria-hidden="true" className="h-4 w-4 text-muted-foreground" />
           <span>Get in touch</span>
         </a>
         <a
@@ -83,7 +86,7 @@ export const About = () => {
           className="inline-flex items-center gap-1.5 px-3 py-2.5 font-mono text-xs text-muted-foreground transition-colors hover:text-foreground"
         >
           <span>github.com/Drithh</span>
-          <FiArrowUpRight className="h-3.5 w-3.5" />
+          <FiArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
         </a>
       </div>
     </section>

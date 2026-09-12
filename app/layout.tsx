@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import Pwa from "./pwa";
 import { ThemeProvider } from "./components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
@@ -22,6 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
@@ -55,12 +57,11 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         <Pwa />
-        <script
-          async
-          defer
+        <Script
           src="https://analytics.umami.is/script.js"
           data-website-id="37c6ea09-2eb8-4e44-abd5-71980ef5b207"
-        ></script>
+          strategy="lazyOnload"
+        />
         <Analytics />
         <SpeedInsights />
       </body>

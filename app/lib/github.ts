@@ -7,6 +7,7 @@ export const fetchGithubData = async (
   try {
     const response = await fetch(
       `https://api.github.com/repos/${githubUsername}/${project}`,
+      { next: { revalidate: 86400 } },
     );
     if (response.status !== 200) {
       console.log("Error fetching data");

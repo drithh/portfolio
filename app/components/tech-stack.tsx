@@ -1,4 +1,5 @@
 "use client";
+import * as React from "react";
 import { motion } from "framer-motion";
 import {
   SiMysql,
@@ -156,8 +157,20 @@ export const TechStack = () => {
                   key={item.name}
                   className="border-border/60 bg-background/60 text-secondary-foreground hover:border-foreground/30 hover:text-foreground inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors"
                 >
-                  <span className="text-foreground/70 text-sm">
-                    {item.icon}
+                  <span
+                    aria-hidden="true"
+                    className="text-foreground/70 text-sm"
+                  >
+                    {React.isValidElement(item.icon)
+                      ? React.cloneElement(
+                          item.icon as React.ReactElement<Record<string, unknown>>,
+                          {
+                            role: "presentation",
+                            "aria-hidden": "true",
+                            focusable: "false",
+                          },
+                        )
+                      : item.icon}
                   </span>
                   <span>{item.name}</span>
                 </div>

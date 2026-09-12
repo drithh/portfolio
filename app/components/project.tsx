@@ -96,11 +96,14 @@ export function Project({ repository, index }: ProjectProps) {
           <div className="flex items-center gap-2">
             {repository.stargazers_count > 0 && (
               <span className="inline-flex items-center gap-1">
-                <FiStar className="h-3 w-3" />
+                <FiStar aria-hidden="true" className="h-3 w-3" />
                 {repository.stargazers_count}
               </span>
             )}
-            <FiArrowUpRight className="h-4 w-4 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+            <FiArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+            />
           </div>
         </div>
 

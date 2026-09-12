@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   FiInstagram,
   FiFacebook,
@@ -74,14 +75,29 @@ export const Contact = () => {
             className="group flex items-center justify-between rounded-xl border border-border/70 bg-card/40 p-3.5 transition-all duration-200 hover:border-foreground/30 hover:bg-card hover:shadow-sm active:scale-[0.98]"
           >
             <div className="flex items-center gap-3">
-              <span className="text-xl text-foreground/80 transition-colors group-hover:text-foreground">
-                {link.icon}
+              <span
+                aria-hidden="true"
+                className="text-xl text-foreground/80 transition-colors group-hover:text-foreground"
+              >
+                {React.isValidElement(link.icon)
+                  ? React.cloneElement(
+                      link.icon as React.ReactElement<Record<string, unknown>>,
+                      {
+                        role: "presentation",
+                        "aria-hidden": "true",
+                        focusable: "false",
+                      },
+                    )
+                  : link.icon}
               </span>
               <span className="font-sans text-sm font-medium text-foreground">
                 {link.label}
               </span>
             </div>
-            <FiArrowUpRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+            <FiArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+            />
           </a>
         ))}
       </div>

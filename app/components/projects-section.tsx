@@ -38,9 +38,15 @@ export const ProjectsSection = ({
           rel="noreferrer"
           className="group inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/60 px-5 py-3 font-mono text-sm text-foreground transition-all duration-200 hover:border-foreground/30 hover:bg-card hover:shadow-sm active:scale-[0.98]"
         >
-          <FiGithub className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+          <FiGithub
+            aria-hidden="true"
+            className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-foreground"
+          />
           <span>Explore all repositories on GitHub</span>
-          <FiArrowUpRight className="h-4 w-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+          <FiArrowUpRight
+            aria-hidden="true"
+            className="h-4 w-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
+          />
         </a>
       </div>
     </section>

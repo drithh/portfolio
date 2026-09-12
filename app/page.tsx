@@ -1,3 +1,6 @@
+export const dynamic = "force-static";
+export const revalidate = 86400;
+
 import { Navbar } from "./components/navbar";
 import { About } from "./components/about";
 import { TechStack } from "./components/tech-stack";
