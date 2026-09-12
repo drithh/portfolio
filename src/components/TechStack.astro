@@ -1,0 +1,127 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface TechItem {
+  name: string;
+  icon: string;
+}
+
+interface TechCategory {
+  id: string;
+  title: string;
+  description: string;
+  items: TechItem[];
+}
+
+const techCategories: TechCategory[] = [
+  {
+    id: "backend",
+    title: "Backend & Distributed Systems",
+    description:
+      "High-throughput APIs, event-driven messaging, and microservices.",
+    items: [
+      { name: "Go", icon: "simple-icons:go" },
+      { name: "TypeScript", icon: "simple-icons:typescript" },
+      { name: "Node.js", icon: "simple-icons:nodedotjs" },
+      { name: "Python", icon: "simple-icons:python" },
+      { name: "FastAPI", icon: "simple-icons:fastapi" },
+      { name: "NestJS", icon: "simple-icons:nestjs" },
+      { name: "Express", icon: "simple-icons:express" },
+      { name: "PHP / Laravel", icon: "simple-icons:laravel" },
+      { name: "NATS", icon: "simple-icons:natsdotio" },
+      { name: "RabbitMQ / BullMQ", icon: "simple-icons:rabbitmq" },
+    ],
+  },
+  {
+    id: "frontend",
+    title: "Frontend & Interfaces",
+    description: "Accessible, performant, and reactive user interfaces.",
+    items: [
+      { name: "React", icon: "simple-icons:react" },
+      { name: "Next.js", icon: "simple-icons:nextdotjs" },
+      { name: "Vue", icon: "simple-icons:vuedotjs" },
+      { name: "Astro", icon: "simple-icons:astro" },
+      { name: "TailwindCSS", icon: "simple-icons:tailwindcss" },
+      { name: "TanStack Query", icon: "simple-icons:react" },
+      { name: "Vite", icon: "simple-icons:vite" },
+      { name: "HTML5 / CSS3", icon: "simple-icons:html5" },
+    ],
+  },
+  {
+    id: "data",
+    title: "Databases & Caching",
+    description: "Relational, spatial, and in-memory data structures.",
+    items: [
+      { name: "PostgreSQL", icon: "simple-icons:postgresql" },
+      { name: "MySQL", icon: "simple-icons:mysql" },
+      { name: "Redis", icon: "simple-icons:redis" },
+      { name: "Elasticsearch", icon: "simple-icons:elasticsearch" },
+      { name: "GraphQL", icon: "simple-icons:graphql" },
+    ],
+  },
+  {
+    id: "devops",
+    title: "Cloud & Developer Tooling",
+    description: "Containerization, edge delivery, and automation.",
+    items: [
+      { name: "Docker", icon: "simple-icons:docker" },
+      { name: "Cloudflare", icon: "simple-icons:cloudflare" },
+      { name: "Google Cloud Platform", icon: "simple-icons:googlecloud" },
+      { name: "Git", icon: "simple-icons:git" },
+      { name: "Puppeteer", icon: "simple-icons:puppeteer" },
+      { name: "OpenAI / LLMs", icon: "simple-icons:openai" },
+    ],
+  },
+];
+---
+
+<section id="stack" class="flex flex-col gap-8">
+  <div class="flex flex-col gap-2">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+      [02] // Technical Repertoire
+    </div>
+    <h2 class="font-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      Stack
+    </h2>
+    <p class="max-w-2xl text-base text-muted-foreground">
+      Here are few technologies that are cup of my{" "}
+      <span class="line-through">coffee</span> tea.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    {
+      techCategories.map((category, catIndex) => (
+        <div class="group flex flex-col justify-between rounded-xl border border-border/70 bg-card/40 p-5 transition-all duration-200 hover:border-foreground/20 hover:bg-card/70">
+          <div class="flex flex-col gap-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-muted-foreground">
+                0{catIndex + 1}.
+              </span>
+            </div>
+            <h3 class="font-title text-lg font-semibold tracking-tight text-foreground">
+              {category.title}
+            </h3>
+            <p class="text-xs leading-relaxed text-muted-foreground">
+              {category.description}
+            </p>
+          </div>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+            {category.items.map((item) => (
+              <div class="inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/60 px-2.5 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:border-foreground/30 hover:text-foreground">
+                <Icon
+                  name={item.icon}
+                  class="h-3.5 w-3.5 text-foreground/70"
+                  aria-hidden="true"
+                  role="presentation"
+                />
+                <span>{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

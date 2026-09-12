@@ -1,0 +1,54 @@
+---
+import type { CVFormattedEntry } from "../types/cv";
+
+interface Props {
+  entry: CVFormattedEntry;
+}
+
+const { entry } = Astro.props;
+const { title, subtitle, date, contentHTML } = entry;
+---
+
+<div
+  class="group relative ml-1 flex w-full border-l border-border/80 pb-8 pl-6 transition-colors last:pb-2 sm:ml-2 sm:pl-8"
+>
+  <span
+    class="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full border border-border bg-background transition-colors duration-200 group-hover:border-foreground group-hover:bg-foreground"
+    aria-hidden="true"></span>
+
+  <div class="flex w-full flex-col gap-1.5">
+    <div
+      class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+    >
+      <h4
+        class="font-title text-lg font-semibold tracking-tight text-foreground sm:text-xl"
+      >
+        {title}
+      </h4>
+      <span
+        class="whitespace-nowrap font-mono text-xs tabular-nums text-muted-foreground sm:text-sm"
+      >
+        {date}
+      </span>
+    </div>
+
+    {
+      subtitle && (
+        <div class="text-sm font-medium text-foreground/80 sm:text-base">
+          {subtitle}
+        </div>
+      )
+    }
+
+    {
+      contentHTML && (
+        <div class="mt-2 w-full text-left text-secondary-foreground">
+          <div
+            class="prose prose-sm w-full max-w-none text-left font-sans text-sm leading-relaxed text-secondary-foreground dark:prose-invert prose-strong:text-foreground prose-ul:my-1.5 prose-li:my-0.5 sm:text-base"
+            set:html={contentHTML}
+          />
+        </div>
+      )
+    }
+  </div>
+</div>

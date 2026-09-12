@@ -1,0 +1,47 @@
+---
+import Experience from "./Experience.astro";
+import { getCVExperienceData } from "../lib/cv";
+
+const sections = await getCVExperienceData();
+---
+
+<section id="experience" class="flex w-full flex-col gap-12">
+  <div class="flex flex-col gap-2">
+    <div
+      class="font-mono text-xs uppercase tracking-widest text-muted-foreground"
+    >
+      [03] // Career Path
+    </div>
+    <h2
+      class="font-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+    >
+      Experience & Education
+    </h2>
+    <p class="max-w-2xl text-base text-muted-foreground">
+      A timeline of professional roles, engineering milestones, and academic
+      background.
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-12">
+    {
+      sections.map((section, secIndex) => (
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-3 border-b border-border/70 pb-3">
+            <span class="font-mono text-xs text-muted-foreground">
+              0{secIndex + 1}.
+            </span>
+            <h3 class="font-title text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              {section.title}
+            </h3>
+          </div>
+          <div class="flex flex-col">
+            {section.entries.map((entry) => (
+              <Experience entry={entry} />
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
