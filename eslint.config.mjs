@@ -1,5 +1,14 @@
-import coreWebVitals from "eslint-config-next/core-web-vitals";
+import eslintPluginAstro from "eslint-plugin-astro";
 
-const eslintConfig = [...coreWebVitals];
-
-export default eslintConfig;
+export default [
+  ...eslintPluginAstro.configs.recommended,
+  {
+    ignores: [
+      ".astro/**",
+      ".next/**",
+      ".superpowers/**",
+      "dist/**",
+      "node_modules/**",
+    ],
+  },
+];

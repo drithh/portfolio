@@ -32,6 +32,7 @@
     "@types/node": "^22.20.2",
     "autoprefixer": "^10.5.6",
     "eslint": "^9.39.5",
+    "eslint-plugin-astro": "^3.1.0",
     "postcss": "^8.5.28",
     "prettier": "^3.9.6",
     "prettier-plugin-tailwindcss": "^0.8.1",
