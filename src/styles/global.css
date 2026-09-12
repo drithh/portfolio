@@ -6,6 +6,7 @@
   --font-sans: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-title: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+  --breakpoint-ty: 420px;
 
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));

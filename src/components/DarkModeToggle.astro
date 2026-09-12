@@ -1,0 +1,106 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 18 } = Astro.props;
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle theme"
+  class="flex items-center justify-center rounded-full transition-transform hover:scale-110 active:scale-95 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring"
+>
+  <svg
+    id="theme-toggle-svg"
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+    class="cursor-pointer transition-transform duration-500 ease-out"
+  >
+    <defs>
+      <mask id="theme-mask">
+        <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+        <circle id="theme-mask-circle" r="9" fill="black" cx="100%" cy="0%" class="transition-all duration-500 ease-out"></circle>
+      </mask>
+    </defs>
+    <circle
+      id="theme-center-circle"
+      cx="12"
+      cy="12"
+      r="5"
+      fill="#D97706"
+      mask="url(#theme-mask)"
+      class="transition-all duration-500 ease-out"
+    ></circle>
+    <g id="theme-rays" stroke="currentColor" class="transition-opacity duration-300 ease-out">
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </g>
+  </svg>
+</button>
+
+<script is:inline>
+  const updateToggleUI = (isDark) => {
+    const svg = document.getElementById("theme-toggle-svg");
+    const maskCircle = document.getElementById("theme-mask-circle");
+    const centerCircle = document.getElementById("theme-center-circle");
+    const rays = document.getElementById("theme-rays");
+
+    if (!svg || !maskCircle || !centerCircle || !rays) return;
+
+    if (isDark) {
+      svg.style.transform = "rotate(40deg)";
+      maskCircle.setAttribute("cx", "50%");
+      maskCircle.setAttribute("cy", "23%");
+      centerCircle.setAttribute("r", "9");
+      centerCircle.setAttribute("fill", "#FCD34D");
+      rays.style.opacity = "0";
+    } else {
+      svg.style.transform = "rotate(90deg)";
+      maskCircle.setAttribute("cx", "100%");
+      maskCircle.setAttribute("cy", "0%");
+      centerCircle.setAttribute("r", "5");
+      centerCircle.setAttribute("fill", "#D97706");
+      rays.style.opacity = "1";
+    }
+  };
+
+  const initToggle = () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    updateToggleUI(isDark);
+
+    const btn = document.getElementById("theme-toggle");
+    btn?.addEventListener("click", () => {
+      const currentlyDark = document.documentElement.classList.contains("dark");
+      const nextDark = !currentlyDark;
+      if (nextDark) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+      updateToggleUI(nextDark);
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initToggle);
+  } else {
+    initToggle();
+  }
+</script>

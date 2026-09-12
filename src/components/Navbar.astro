@@ -1,0 +1,225 @@
+---
+import DarkModeToggle from "./DarkModeToggle.astro";
+
+const navItems = [
+  { id: "about", label: "About" },
+  { id: "experience", label: "Experience", hideOnMobile: true },
+  { id: "stack", label: "Stack" },
+  { id: "project", label: "Project" },
+  { id: "contact", label: "Contact" },
+];
+---
+
+<header class="sticky top-3 z-40 my-3 flex w-full items-center justify-between py-2 sm:my-5">
+  {/* Brand / Mini Avatar */}
+  <a
+    href="#about"
+    id="nav-brand"
+    class="group flex items-center gap-2.5 transition-opacity hover:opacity-80"
+    aria-label="Navigate to top"
+  >
+    <div class="shadow-xs relative h-8 w-8 overflow-hidden rounded-full border border-border/80 bg-muted/40 sm:h-9 sm:w-9">
+      <img
+        src="/avatar.png"
+        alt="Adriel"
+        width="36"
+        height="36"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+    </div>
+  </a>
+
+  {/* Floating Capsule Nav Dock */}
+  <nav
+    aria-label="Main Navigation"
+    class="shadow-xs relative flex items-center rounded-full border border-border/80 bg-background/80 p-1 backdrop-blur-md"
+  >
+    {
+      navItems.map((item) => (
+        <a
+          href={`#${item.id}`}
+          data-section={item.id}
+          class:list={[
+            "nav-pill relative z-0 items-center rounded-full px-3 py-1 font-sans text-xs font-medium transition-colors sm:px-3.5 sm:py-1.5 sm:text-sm",
+            item.hideOnMobile ? "hidden ty:inline-flex" : "inline-flex",
+            item.id === "about"
+              ? "active text-foreground font-semibold"
+              : "text-muted-foreground hover:text-foreground",
+          ]}
+        >
+          <span
+            class:list={[
+              "nav-indicator absolute inset-0 -z-10 rounded-full border border-border/70 bg-background shadow-xs transition-opacity duration-200",
+              item.id === "about" ? "opacity-100" : "opacity-0",
+            ]}
+            aria-hidden="true"
+          />
+          <span>{item.label}</span>
+        </a>
+      ))
+    }
+  </nav>
+
+  {/* Theme Toggle Button */}
+  <div class="flex items-center">
+    <div class="shadow-xs flex h-8 w-8 items-center justify-center rounded-full border border-border/80 bg-background/80 backdrop-blur-md transition-colors hover:border-foreground/30 hover:bg-secondary/60 sm:h-9 sm:w-9">
+      <DarkModeToggle size={18} />
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const navPills = document.querySelectorAll(".nav-pill");
+    const brandLink = document.getElementById("nav-brand");
+    const sectionIds = ["about", "experience", "stack", "project", "contact"];
+    let isProgrammaticScroll = false;
+    let scrollTimeout = null;
+
+    const setActiveSection = (sectionId) => {
+      const isMobile = window.innerWidth <= 420;
+      if (isMobile && sectionId === "experience") {
+        return;
+      }
+
+      navPills.forEach((pill) => {
+        const targetSection = pill.getAttribute("data-section");
+        const indicator = pill.querySelector(".nav-indicator");
+        const isActive = targetSection === sectionId;
+
+        if (isActive) {
+          pill.classList.add("active", "text-foreground", "font-semibold");
+          pill.classList.remove("text-muted-foreground");
+          if (indicator) {
+            indicator.classList.add("opacity-100");
+            indicator.classList.remove("opacity-0");
+          }
+        } else {
+          pill.classList.remove("active", "text-foreground", "font-semibold");
+          pill.classList.add("text-muted-foreground");
+          if (indicator) {
+            indicator.classList.remove("opacity-100");
+            indicator.classList.add("opacity-0");
+          }
+        }
+      });
+    };
+
+    const scrollToSection = (sectionId) => {
+      setActiveSection(sectionId);
+      isProgrammaticScroll = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isProgrammaticScroll = false;
+      }, 1000);
+
+      if (sectionId === "about") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        const target = document.getElementById(sectionId);
+        if (target) {
+          const offset = 100;
+          const bodyTop = document.body.getBoundingClientRect().top;
+          const elementTop = target.getBoundingClientRect().top;
+          const targetPosition = elementTop - bodyTop - offset;
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: "smooth",
+          });
+        }
+      }
+      history.replaceState(null, "", `#${sectionId}`);
+    };
+
+    // Smooth scroll on click for nav pills and avatar brand
+    navPills.forEach((pill) => {
+      pill.addEventListener("click", (e) => {
+        e.preventDefault();
+        const sectionId = pill.getAttribute("data-section");
+        if (sectionId) {
+          scrollToSection(sectionId);
+        }
+      });
+    });
+
+    brandLink?.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToSection("about");
+    });
+
+    // IntersectionObserver scroll spy
+    const setupScrollSpy = () => {
+      const sectionElements = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      if (sectionElements.length === 0) return;
+
+      const visibleEntries = new Map();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (isProgrammaticScroll) return;
+
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              visibleEntries.set(entry.target.id, entry);
+            } else {
+              visibleEntries.delete(entry.target.id);
+            }
+          });
+
+          // Top boundary check
+          if (window.scrollY < 100) {
+            setActiveSection("about");
+            return;
+          }
+
+          // Bottom boundary check
+          if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 80
+          ) {
+            setActiveSection("contact");
+            return;
+          }
+
+          // Determine the most relevant visible section
+          let bestId = null;
+          let minDistance = Infinity;
+          const isMobile = window.innerWidth <= 420;
+
+          visibleEntries.forEach((entry, id) => {
+            if (isMobile && id === "experience") return;
+            const top = entry.target.getBoundingClientRect().top;
+            const distance = Math.abs(top - 120);
+            if (distance < minDistance) {
+              minDistance = distance;
+              bestId = id;
+            }
+          });
+
+          if (bestId) {
+            setActiveSection(bestId);
+          }
+        },
+        {
+          rootMargin: "-80px 0px -40% 0px",
+          threshold: [0, 0.1, 0.25, 0.5, 0.75, 1],
+        }
+      );
+
+      sectionElements.forEach((el) => observer.observe(el));
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", setupScrollSpy);
+    } else {
+      setupScrollSpy();
+    }
+  })();
+</script>
