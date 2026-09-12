@@ -20,7 +20,6 @@ The application adopts pure static site generation with micro-interactions power
                   │  - Geist Variable fonts (@fontsource-variable)   │
                   │  - Early inline theme script (prevents FOUC)     │
                   │  - Ambient SVG noise background overlay          │
-                  │  - Umami Analytics (lazyOnload)                  │
                   └─────────────────────────┬────────────────────────┘
                                             │
                                             ▼

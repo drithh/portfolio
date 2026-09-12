@@ -37,9 +37,6 @@ const {
       crossorigin="anonymous"
     />
 
-    {/* Preconnect & DNS-prefetch for analytics origins */}
-    <link rel="dns-prefetch" href="https://analytics.umami.is" />
-    <link rel="dns-prefetch" href="https://gateway.umami.is" />
     {/* Inline Theme Script to prevent FOUC */}
     <script is:inline>
       const getTheme = () => {
@@ -66,24 +63,5 @@ const {
 
     <slot />
 
-    {/* Analytics (Lazy loaded after page interactive) */}
-    {/* Defer analytics until after page load & idle state to avoid critical path blocking */}
-    <script is:inline>
-      window.addEventListener("load", () => {
-        const loadAnalytics = () => {
-          const s = document.createElement("script");
-          s.async = true;
-          s.defer = true;
-          s.src = "https://analytics.umami.is/script.js";
-          s.setAttribute("data-website-id", "37c6ea09-2eb8-4e44-abd5-71980ef5b207");
-          document.head.appendChild(s);
-        };
-        if ("requestIdleCallback" in window) {
-          requestIdleCallback(loadAnalytics, { timeout: 3000 });
-        } else {
-          setTimeout(loadAnalytics, 1500);
-        }
-      });
-    </script>
   </body>
 </html>
