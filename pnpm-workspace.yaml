@@ -3,3 +3,4 @@ trustLockfile: true
 allowBuilds:
   unrs-resolver: true
   sharp: true
+  esbuild: true
