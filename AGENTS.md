@@ -17,7 +17,7 @@ The application adopts pure static site generation with micro-interactions power
 ```
                   ┌──────────────────────────────────────────────────┐
                   │            src/layouts/Layout.astro              │
-                  │  - Geist Variable fonts (@fontsource-variable)   │
+                  │  - Geist Variable fonts (self-hosted /fonts)   │
                   │  - Early inline theme script (prevents FOUC)     │
                   │  - Ambient SVG noise background overlay          │
                   └─────────────────────────┬────────────────────────┘
@@ -80,7 +80,7 @@ The application adopts pure static site generation with micro-interactions power
 │   │   └── cv.ts         # Build-time YAML parser and date formatter for content/cv.yaml
 │   ├── pages/            # File-based routing (index.astro)
 │   ├── styles/           # Global styles and Tailwind CSS v4 theme tokens
-│   │   └── global.css    # @import "tailwindcss", @fontsource fonts, HSL theme variables
+│   │   └── global.css    # @import "tailwindcss", self-hosted fonts, HSL theme variables
 │   └── types/            # TypeScript domain interfaces (cv.ts, repo.ts)
 ├── content/              # Content directory
 │   └── cv.yaml           # CV data source rendered with RenderCV and loaded by WorkExperience
