@@ -2,7 +2,9 @@
 
 ## Project Overview
 
-This repository is the personal portfolio website for Adriel Alfeus ([adriel.id](https://adriel.id)). It is a single-page web application built with **Next.js 15 (App Router)**, **React 19**, **TypeScript 5 (strict mode)**, and **Tailwind CSS 3.4**. The site showcases personal background, a categorized technology stack, interactive education and work timelines loaded from `content/cv.yaml`, and featured GitHub projects fetched via the GitHub REST API.
+This repository is the personal portfolio website for Adriel Alfeus ([adriel.id](https://adriel.id)). It is a static single-page web application built with **Astro 5 (Static Site Generation)**, **Tailwind CSS v4** (via `@tailwindcss/vite`), and **TypeScript** (strict mode). The site showcases personal background, a categorized technology stack, interactive education and work timelines loaded from `content/cv.yaml`, and featured GitHub projects fetched at build time via the GitHub REST API.
+
+The site is designed with a **Zero-Runtime Framework JS** philosophy: all pages, layouts, and presentational sections are compiled to 100% pure static HTML/CSS at build time, yielding instant loads, zero hydration overhead, and a 100/100 Lighthouse performance and accessibility score.
 
 ---
 
@@ -10,63 +12,60 @@ This repository is the personal portfolio website for Adriel Alfeus ([adriel.id]
 
 ### High-Level Architecture
 
-The application adopts a hybrid Server/Client component architecture powered by the Next.js 15 App Router:
+The application adopts pure static site generation with micro-interactions powered by native vanilla browser APIs:
 
 ```
                   ┌──────────────────────────────────────────────────┐
-                  │            app/layout.tsx (Server)               │
-                  │  - Inter & GT Walsheim fonts                     │
-                  │  - ThemeProvider (next-themes)                   │
-                  │  - Pwa client registrar (app/pwa.tsx)            │
-                  │  - Umami Analytics & Vercel Analytics / Speed    │
+                  │            src/layouts/Layout.astro              │
+                  │  - Geist Variable fonts (@fontsource-variable)   │
+                  │  - Early inline theme script (prevents FOUC)     │
+                  │  - Ambient SVG noise background overlay          │
+                  │  - Umami Analytics (lazyOnload)                  │
                   └─────────────────────────┬────────────────────────┘
                                             │
                                             ▼
                   ┌──────────────────────────────────────────────────┐
-                  │             app/page.tsx (Server)                │
-                  │  - Root async Server Component                   │
-                  │  - Defines projects list & fetches GitHub data   │
+                  │             src/pages/index.astro                │
+                  │  - Root static page orchestrator                 │
+                  │  - Fetches GitHub repositories at build time     │
                   └─────────────────────────┬────────────────────────┘
                                             │
        ┌──────────────────┬─────────────────┼──────────────────┬─────────────────┐
        ▼                  ▼                 ▼                  ▼                 ▼
 ┌──────────────┐   ┌──────────────┐  ┌──────────────┐   ┌──────────────┐  ┌──────────────┐
-│    Navbar    │   │    About     │  │  TechStack   │   │WorkExperience│  │ProjectsSect. │
-│(Client Comp.)│   │(Server Comp.)│  │(Server Comp.)│   │(Server Comp.)│  │(Server Comp.)│
+│ Navbar.astro │   │ About.astro  │  │TechStack.ast │   │WorkExperience│  │ProjectsSect. │
 │              │   │              │  │              │   │              │  │              │
-│- Scroll spy  │   │- Bio text    │  │- Categorized │   │- Reads from  │  │- Renders     │
-│- Framer pill │   │- CV download │  │  icon grid   │   │  content/    │  │  GitHub repos│
-│- Dark toggle │   └──────────────┘  └──────────────┘   │  cv.yaml     │  │- WebP images │
-└──────────────┘                                        └──────────────┘  └──────────────┘
+│- Scroll spy  │   │- Bio text    │  │- Categorized │   │- Reads from  │  │- Static WebP │
+│- Theme toggle│   │- CV download │  │  inlined SVG │   │  content/    │  │  previews    │
+│  (vanilla JS)│   └──────────────┘  │  badges      │   │  cv.yaml     │  │- Spotlight   │
+└──────────────┘                     └──────────────┘   └──────────────┘  └──────────────┘
 ```
 
 ### Server vs. Client Component Boundaries
 
-- **React Server Components (RSC)**: Default for page and content presentation.
-  - `app/page.tsx`: Top-level async page orchestrator.
-  - `app/components/work-experience.tsx`: Async RSC executing Node.js filesystem I/O (`fs.promises`) via `app/lib/cv.ts` to parse `content/cv.yaml`.
-  - `app/components/about.tsx`, `app/components/tech-stack.tsx`, `app/components/projects-section.tsx`, `app/components/experience.tsx`, `app/components/project.tsx`, `app/components/contact.tsx`: Pure presentational components.
-- **Client Components (`"use client"`)**: Strictly isolated to interactive browser features.
-  - `app/components/navbar.tsx`, `app/components/nav-item.tsx`, `app/components/background-navbar.tsx`: Scroll-spy tracking, viewport measurements, and Framer Motion layout animations.
-  - `app/components/dark-mode-toggle.tsx`: Interactive SVG physics morphing using `@react-spring/web` and `useTheme`.
-  - `app/components/theme-provider.tsx`: Context provider for `next-themes`.
-  - `app/pwa.tsx`: Client lifecycle listener registering `/sw.js`.
-  - `app/lib/window-dimension.ts`: Client hook listening to `window.resize`.
+- **Static Astro Components (Zero Framework JS)**:
+  - `src/layouts/Layout.astro`: Base HTML shell with metadata, early theme script, and layout container.
+  - `src/pages/index.astro`: Single-page orchestrator pre-fetching GitHub repo metadata at build time.
+  - `src/components/About.astro`, `src/components/TechStack.astro`, `src/components/WorkExperience.astro`, `src/components/Experience.astro`, `src/components/ProjectsSection.astro`, `src/components/Project.astro`, `src/components/Contact.astro`: Pure static HTML templates.
+- **Client Micro-Interactions (Native Vanilla APIs)**:
+  - `src/components/DarkModeToggle.astro`: Semantic `<button id="theme-toggle">` driving hardware-accelerated CSS SVG mask transitions and synchronizing `.dark` on `document.documentElement` with `localStorage`.
+  - `src/components/Navbar.astro`: Capsule navigation dock using `IntersectionObserver` to highlight the active section pill and calculate smooth scroll offsets.
+  - `src/components/SpotlightScript.astro`: Passive `pointermove` listener updating `--mouse-x` and `--mouse-y` CSS custom properties on `.project-card` containers.
 
 ### Data Flow
 
 1. **GitHub Repository Metadata**:
-   - Hardcoded repository slugs are declared in `app/page.tsx` (`projects` array).
-   - `app/lib/github.ts` queries the GitHub REST API (`https://api.github.com/repos/{githubUsername}/{project}`) in parallel using `Promise.all`.
+   - Hardcoded repository slugs are declared in `src/pages/index.astro` (`projectSlugs` array).
+   - `src/lib/github.ts` queries the GitHub REST API at build time with error handling and rate-limit fallbacks.
    - Repositories are passed into `<ProjectsSection />` and rendered via `<Project />`.
    - Project preview thumbnails are resolved statically from `/public/projects/${repository.name}.webp`.
 2. **Work & Education Experience**:
    - Source data resides in `content/cv.yaml` (RenderCV schema).
-   - `app/lib/cv.ts` (`getCVExperienceData`) parses `content/cv.yaml` using `yaml`, formats date ranges (`YYYY-MM` to month names, `present` to `Present`), renders highlight Markdown formatting using `markdown-it`, and structures entries into categorized vertical sections (`Professional Experience`, `Freelance Experience`, `Internships & Initiatives`, `Education`).
+   - `src/lib/cv.ts` (`getCVExperienceData`) parses `content/cv.yaml` using `yaml`, formats date ranges (`YYYY-MM` to month names, `present` to `Present`), renders highlight Markdown formatting using `markdown-it`, and structures entries into categorized vertical sections (`Professional Experience`, `Freelance Experience`, `Internships & Initiatives`, `Education`).
    - `<WorkExperience />` renders the categorized sections via `<Experience />` using clean typography and minimalist layout.
 3. **Single-Page Navigation**:
-   - Navigation targets in-page IDs: `#about`, `#experience`, `#project`, and `#contact`.
-   - `app/hooks/use-scroll-spy.ts` observes window scroll position, highlights the active nav item, and animates smooth scrolling with top offsets.
+   - Navigation targets in-page IDs: `#about`, `#experience`, `#stack`, `#project`, and `#contact`.
+   - Native `IntersectionObserver` in `src/components/Navbar.astro` observes window scroll position, highlights the active nav item, and animates smooth scrolling with top offsets.
    - Breakpoint rule: On screens $\le 420\text{px}$ (`ty` breakpoint), the `#experience` nav indicator is automatically hidden/bypassed.
 
 ---
@@ -75,63 +74,50 @@ The application adopts a hybrid Server/Client component architecture powered by 
 
 ```
 .
-├── app/                  # Next.js App Router root (pages, layouts, styles, PWA)
-│   ├── components/       # UI sections, navigation, and theme components
-│   ├── hooks/            # Custom React hooks (useScrollSpy)
-│   ├── lib/              # Core utilities (GitHub API, cv.ts YAML parser, MDX loader, cn helper)
-│   │   └── cv.ts         # Server-side YAML parser and date formatter for content/cv.yaml
-│   ├── types/            # TypeScript domain interfaces (cv.ts, Repository, Work)
-│   │   └── cv.ts         # TypeScript schema and types for RenderCV cv.yaml
-│   ├── globals.css       # Global styles, @font-face rules, HSL theme tokens
-│   ├── layout.tsx        # HTML document root, font definitions, providers
-│   ├── page.tsx          # Single-page entry point and data orchestrator
-│   └── pwa.tsx           # Client service worker registration component
+├── src/                  # Astro source root
+│   ├── components/       # Astro UI sections, navigation, and theme components
+│   ├── layouts/          # Base HTML layouts (Layout.astro)
+│   ├── lib/              # Core utilities (GitHub API, cv.ts YAML parser, cn helper)
+│   │   └── cv.ts         # Build-time YAML parser and date formatter for content/cv.yaml
+│   ├── pages/            # File-based routing (index.astro)
+│   ├── styles/           # Global styles and Tailwind CSS v4 theme tokens
+│   │   └── global.css    # @import "tailwindcss", @fontsource fonts, HSL theme variables
+│   └── types/            # TypeScript domain interfaces (cv.ts, repo.ts)
 ├── content/              # Content directory
-│   ├── cv.yaml           # CV data source rendered with RenderCV and loaded by WorkExperience
-│   └── work/             # (Legacy) MDX files with YAML frontmatter for work/education
+│   └── cv.yaml           # CV data source rendered with RenderCV and loaded by WorkExperience
 ├── public/               # Static assets served at root path
-│   ├── fonts/            # Self-hosted GT Walsheim OpenType font family (.otf)
+│   ├── fonts/            # Self-hosted font files
 │   ├── projects/         # Project preview screenshots (.webp format)
-│   ├── manifest.json     # PWA Web App Manifest
-│   ├── sw.js             # Workbox Service Worker script
+│   ├── adriel-alfeus.pdf # Downloadable resume PDF
 │   └── avatar.png        # Profile avatar
-└── [configs]             # package.json, tsconfig.json, tailwind.config.js, etc.
+└── [configs]             # astro.config.mjs, package.json, tsconfig.json, eslint.config.mjs
 ```
 
 ---
 
 ## Development Commands
 
-All development commands should be executed via **pnpm** (primary) or **bun**.
+All development commands should be executed via **pnpm**:
 
 ```bash
-# Start development server (http://localhost:3000)
+# Start development server (http://localhost:4321)
 pnpm dev
 
-# Create production build (runs TypeScript typecheck and ESLint automatically)
+# Create static production build in dist/
 pnpm build
 
-# Start production server
-pnpm start
+# Preview static production build locally
+pnpm preview
 
-# Bun-based predeploy build
-pnpm predeploy
-# or: bun run build
+# Run Astro component type checking and diagnostics
+pnpm exec astro check
 
 # Run TypeScript typecheck without emitting files
 pnpm exec tsc --noEmit
 
-# Run Next.js ESLint checks
-pnpm exec next lint
-
-# Check code formatting and Tailwind class ordering
-pnpm exec prettier --check .
-
-# Auto-format files and sort Tailwind CSS classes
-pnpm exec prettier --write .
+# Run ESLint checks (eslint-plugin-astro)
+pnpm run lint
 ```
-
-> **Note on `pnpm export`**: The script `"export": "next build && next export"` in `package.json` uses a command deprecated and removed in Next.js 14/15. Do not rely on `next export`; Next.js static exports now require `output: 'export'` in `next.config.js`.
 
 ---
 
@@ -139,173 +125,55 @@ pnpm exec prettier --write .
 
 ### 1. Path Aliases
 
-`tsconfig.json` and `components.json` configure `@/*` to map strictly to `./app/*`:
+`tsconfig.json` configures `@/*` to map strictly to `./src/*`:
 ```ts
 // Correct:
 import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
-import { Repository } from "@/types/repo";
-
-// Incorrect (there is no src/ directory):
-import { cn } from "@/src/lib/utils";
+import Navbar from "@/components/Navbar.astro";
+import type { Repository } from "@/types/repo";
 ```
 
-### 2. Class Merging & Tailwind Styling
+### 2. Styling & Tailwind CSS v4
 
-- Use `cn()` from `@/lib/utils` (wraps `clsx` and `tailwind-merge`):
-  ```tsx
-  import { cn } from "@/lib/utils";
-
-  export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-    return <div className={cn("rounded-lg border bg-card text-card-foreground p-4", className)} {...props} />;
-  }
-  ```
-- **Tailwind CSS Variables**: Colors are defined as HSL tokens in `app/globals.css` and mapped in `tailwind.config.js` (`bg-background`, `text-secondary-foreground`, `text-accent-foreground`, `bg-card`, `border-border`).
-- **Dark Mode**: Activated via `.dark` class (`darkMode: ["class"]`) controlled by `next-themes`. Use `dark:` variants (e.g. `dark:prose-invert`, `dark:bg-slate-900`).
-- **Custom Breakpoint `ty` (420px)**: Use `ty:` prefix for ultra-compact mobile layouts below standard `sm: 640px` (e.g. `ty:px-4`, `ty:text-lg`).
-- **Class Ordering**: `prettier-plugin-tailwindcss` is configured. Always maintain standard utility order when writing classes or run `prettier --write`.
+- Tailwind CSS v4 is integrated directly through `@tailwindcss/vite` in `astro.config.mjs`.
+- Theme tokens and HSL color variables are declared in `src/styles/global.css`:
+  - `bg-background`, `text-foreground`, `text-muted-foreground`, `bg-card`, `border-border`.
+- **Dark Mode**: Controlled via the `.dark` class on `document.documentElement` (`<html class="dark">`). Use standard `dark:` variants.
+- **Custom Breakpoint `ty` (420px)**: Configured in `@theme` as `--breakpoint-ty: 420px;`. Use `ty:inline-flex` for ultra-compact mobile layouts below standard `sm: 640px`.
 
 ### 3. Fonts & Typography
 
-- **Headings & Titles**: Use `font-title` (maps to Google Font `Inter` via `--font-title` in `app/layout.tsx`).
-- **Body & Sans**: Use `font-sans` (maps to self-hosted `GT Walsheim` defined in `app/globals.css`).
-- **Markdown Prose**: Use `prose prose-sm dark:prose-invert` for rendering raw HTML generated from MDX.
+- **Sans & Title**: Geist Variable (`@fontsource-variable/geist`), mapped to `--font-sans` and `--font-title`.
+- **Mono**: Geist Mono Variable (`@fontsource-variable/geist-mono`), mapped to `--font-mono`.
+- **Prose**: Use `prose prose-sm dark:prose-invert` for rendering Markdown bullet points.
 
-### 4. Component Patterns
+### 4. Icons
 
-- **Server vs Client**:
-  - Add `"use client";` at the very top of files that use React hooks (`useState`, `useEffect`, `useRef`), browser APIs (`window`, `navigator`), or animations (`framer-motion`, `@react-spring/web`).
-  - Keep components Server Components if they only render props or perform server-side data fetching.
-- **Hydration Guards for Theming**:
-  - `<html>` in `app/layout.tsx` includes `suppressHydrationWarning` to allow `next-themes` theme injection without console mismatch warnings.
-  - Interactive theme components (like `DarkModeToggle`) guard against mismatch using mounted state:
-    ```tsx
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => setMounted(true), []);
-    if (!mounted) return null;
-    ```
-
-### 5. Animation Conventions
-
-- **Framer Motion (`framer-motion`)**:
-  - Use `layoutId` for shared layout spring transitions across elements (e.g. active navigation pill in `app/components/nav-item.tsx`):
-    ```tsx
-    <motion.div
-      layoutId="selected"
-      className="absolute inset-0 rounded-full bg-secondary"
-      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-    />
-    ```
-  - Use `useScroll` and `useTransform` for scroll-driven coordinate and opacity transforms (see `app/components/background-navbar.tsx`).
-- **React Spring (`@react-spring/web`)**:
-  - Reserved for fine-grained physics SVG attribute morphing (see `app/components/dark-mode-toggle.tsx`).
-
-### 6. Content & MDX Conventions
-
-When adding a work or education milestone in `content/work/<slug>.mdx`:
-1. Use standard Markdown format with YAML frontmatter delimiters (`---`).
-2. Strictly supply the following frontmatter properties:
-   ```yaml
-   ---
-   title: "Role or Degree Title"
-   company: "Company or Institution Name"
-   date: "Start Date - End Date"
-   icon: "code" # Only 'code' (IoCodeSlash) or 'graduation' (SlGraduation)
-   sortnum: 10  # Integer: higher numbers appear first (descending sort)
-   type: "Work"
-   ---
-
-   - Accomplishment or course bullet 1
-   - Accomplishment or course bullet 2
-   ```
-
-### 7. Adding Featured Projects
-
-When adding a new repository to featured projects:
-1. Append the repository name to the `projects` array in `app/page.tsx`:
-   ```ts
-   const projects = [
-     "setalip-mono",
-     // ...
-     "new-repo-name",
-   ];
-   ```
-2. **Mandatory Asset**: Add an optimized WebP thumbnail screenshot at `public/projects/<new-repo-name>.webp`. `app/components/project.tsx` renders this image dynamically via Next.js `<Image src={`/projects/${repository.name}.webp`} />`.
-
-### 8. Error Handling & Invariants
-
-- **API Failure Fallbacks**: `fetchGithubData` wraps fetch requests in `try/catch` and returns `undefined` on non-200 responses. `getRepositories` filters out `undefined` entries to prevent page crashes.
-- **Filesystem Fallbacks**: `getCVExperienceData` in `app/lib/cv.ts` reads and parses `content/cv.yaml`, returning structured section groups. `getWorkContent` in `app/lib/mdx.ts` wraps `fs.readdir` in `try/catch` and returns `[]` on error.
-- **`next.config.js` Anomaly**: Currently `next.config.js` instantiates `withPWAInit` but does not export it (`module.exports = ...` is absent). If modifying Next.js configuration, be aware that Next.js is currently running on default configuration.
+- Use `astro-icon` with `@iconify-json/simple-icons` and `@iconify-json/feather`:
+  ```astro
+  ---
+  import { Icon } from "astro-icon/components";
+  ---
+  <Icon name="simple-icons:go" class="h-4 w-4" aria-hidden="true" role="presentation" />
+  <Icon name="feather:arrow-up-right" class="h-4 w-4" aria-hidden="true" />
+  ```
+- **Accessibility Rule**: Always specify `aria-hidden="true"` and `role="presentation"` on decorative technology and arrow icons to maintain 100% Lighthouse accessibility.
 
 ---
 
-## Important Files
-
-| File Path | Description |
-|-----------|-------------|
-| `app/page.tsx` | Main page entry point (RSC); defines project repository list, fetches data, and composes sections. |
-| `app/layout.tsx` | Root HTML layout; configures fonts (`Inter`), `ThemeProvider`, Umami, Vercel Analytics, and Speed Insights. |
-| `app/pwa.tsx` | Client component handling service worker registration (`/sw.js`). |
-| `app/globals.css` | Global styles, `@font-face` rules for `GT Walsheim`, and light/dark theme CSS variables. |
-| `app/lib/cv.ts` | Server-side YAML parser and date formatter for `content/cv.yaml`; provides `getCVExperienceData`. |
-| `app/lib/github.ts` | GitHub REST API client functions (`fetchGithubData`, `getRepositories`). |
-| `app/lib/mdx.ts` | Server-side MDX reader using `gray-matter` and `markdown-it`; defines `WorkFrontmatter` and `Work` types. |
-| `app/lib/utils.ts` | Shared `cn()` helper combining `clsx` and `tailwind-merge`. |
-| `app/types/cv.ts` | TypeScript domain interfaces for `content/cv.yaml` (`CVData`, `CVExperienceRawEntry`, `CVFormattedEntry`, `CVSectionGroup`). |
-| `app/hooks/use-scroll-spy.ts` | Window scroll spy hook for active section tracking and smooth scrolling. |
-| `app/components/navbar.tsx` | Sticky navbar coordinating scroll spy, profile avatar, theme toggle, and background animations. |
-| `app/components/work-experience.tsx` | Async Server Component loading directly from `content/cv.yaml` via `app/lib/cv.ts` and rendering grouped vertical experience sections. |
-| `app/components/projects-section.tsx` | Projects grid container rendering project cards and GitHub profile link. |
-| `content/work/*.mdx` | Markdown files storing work and education timeline entries. |
-| `content/cv.yaml` | RenderCV source YAML used to generate downloadable PDF and loaded directly by `app/components/work-experience.tsx`. |
-| `tailwind.config.js` | Tailwind CSS v3 configuration (fonts, custom `ty` breakpoint, HSL color tokens, animations). |
-| `components.json` | Shadcn UI configuration defining `@/components` and `@/lib/utils` path aliases. |
-| `tsconfig.json` | TypeScript compiler configuration (strict mode, `@/*` path mapping). |
-| `next.config.js` | Next.js configuration file. |
-| `public/manifest.json` | Web App Manifest for PWA installation. |
-
----
-
-## Runtime/Tooling Preferences
-
-- **Primary Package Manager**: **pnpm** (pinned in `package.json` to `pnpm@11.26.0`). Primary lockfile is `pnpm-lock.yaml`.
-- **Secondary / Build Runtime**: **Bun** (`bun.lock` is present; `pnpm predeploy` calls `bun run build`).
-- **Node.js Compatibility**: Requires Node.js $\ge 18.18.0$. `@types/node` is set to `^22.20.2`.
-- **TypeScript**: TypeScript 6 (`^6.0.3`). Strict mode enabled. Target is `es2022`, module resolution is `bundler`.
-- **UI Framework**: React 19 (`^19.3.0`) and Next.js 16 (`^16.3.5`).
-- **Icons**: Use `react-icons` (`react-icons/si`, `react-icons/io5`, `react-icons/sl`, `react-icons/fi`, etc.) for icons across sections. Avoid adding duplicate icon packages.
-
----
-
-## Testing & QA
-
-### Current State
-
-The repository currently contains **0 automated test files** and no preconfigured test runner (such as Jest or Vitest). Quality assurance relies on static analysis, compiler type verification, and build validation.
-
-### Verification Pipeline for Changes
+## Verification Pipeline for Changes
 
 Every contribution, modification, or automated edit MUST pass the following three checks before completion:
 
-1. **TypeScript Typecheck**:
+1. **Astro Diagnostics**:
    ```bash
-   pnpm exec tsc --noEmit
+   pnpm exec astro check
    ```
-   Ensures zero type errors under TypeScript strict mode.
 2. **ESLint Linting**:
    ```bash
    pnpm run lint
    ```
-   Validates code against `next/core-web-vitals`, React hooks rules, and accessibility standards.
-3. **Production Build**:
+3. **Production Static Build**:
    ```bash
    pnpm run build
    ```
-   Verifies that static analysis, compilation, and page generation succeed without runtime errors.
-
-### Guidelines for Adding Tests
-
-If introducing automated testing to the repository:
-- **Unit & Component Testing**: Use **Vitest** with `@testing-library/react` and `jsdom` (preferred over Jest for React 19 and ESM compatibility). Place tests adjacent to the source code (e.g. `app/lib/__tests__/mdx.test.ts` or `app/components/__tests__/navbar.test.tsx`).
-- **End-to-End Testing**: Use **Playwright** (`@playwright/test`) targeting the local Next.js dev server (`http://localhost:3000`).
