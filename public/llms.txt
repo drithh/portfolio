@@ -1,0 +1,62 @@
+# Adriel Alfeus Hutabarat
+
+> Software Engineer with expertise in Go, TypeScript, and Python, specializing in high-performance backend systems, spatial data infrastructure, and reactive web applications. Based in Bekasi, Indonesia.
+
+## About
+Adriel Alfeus Hutabarat is a Software Engineer with a Bachelor of Computer Science from Sebelas Maret University (UNS). Passionate about full-stack engineering, distributed systems, high-throughput APIs, and geospatial data processing.
+
+- Website: https://adriel.id
+- GitHub: https://github.com/Drithh
+- LinkedIn: https://www.linkedin.com/in/adrielalfeus/
+- Email: contact@drith.me / adrielalfeus@gmail.com
+- Resume (PDF): https://adriel.id/adriel-alfeus.pdf
+
+## Technical Repertoire
+
+### Backend & Distributed Systems
+- Go, TypeScript, Node.js, Python, PHP, Laravel, FastAPI, NestJS, Express
+- NATS, RabbitMQ, BullMQ, Microservices, Event-Driven Architecture, High-Concurrency APIs
+
+### Frontend & Interfaces
+- React, Astro, Next.js, Vue, Tailwind CSS, TanStack Query, Vite, HTML5 / CSS3
+
+### Databases & Caching
+- PostgreSQL, PostGIS, MySQL, Redis, Elasticsearch, GraphQL
+
+### Cloud & DevOps
+- Docker, Cloudflare, Google Cloud Platform (GCP), Git, CI/CD, Puppeteer, OpenAI / LLMs
+
+## Career Experience
+
+### Backend Engineer — PT Cakra Jala Teknologi (Jan 2026 - Present)
+- Architected an offline-first POS platform in Go, bridging cloud PostgreSQL and local SQLite via CGo and Protobuf to guarantee zero checkout downtime.
+- Engineered high-concurrency transaction workflows, dynamic pricing, and financial audits integrated with Epson LX-310 hardware printers.
+- Built a full-stack Employee Portal and Logbook using TypeScript and PostgreSQL with role-based access control (RBAC).
+
+### Software Engineer — Idea Comindo (Jun 2025 - Feb 2026)
+- Built a full-stack geospatial platform with PostGIS, NestJS GraphQL, Redis, and Dataloader.
+- Engineered Python scraping pipelines automating collection of 20GB+ demographic datasets across dozens of countries.
+- Integrated AI-driven natural language querying over geospatial datasets using OpenAI and Gemini models.
+
+### Backend Engineer — PT Datasintesa Teknologi Nusantara (Jun 2024 - Jun 2025)
+- Developed and maintained BTS telecommunication monitoring systems tracking 5,800+ sites across multiple consortiums.
+- Managed asynchronous data pipelines, scheduled extraction jobs, BullMQ job queues, and Elastic APM monitoring.
+
+### Freelance Software Engineer (2024 - 2025)
+- **Itemgame**: Scalable digital commerce platform using Go, Docker, Cloudflare CDN, and NATS message broker for peak traffic.
+- **Pilates Reform**: Booking and membership platform with Midtrans payment gateway and automated booking notifications.
+- **Wijaya Door**: Interactive company profile with custom pricing calculators and localized customer inquiry forms.
+
+## Education
+- **Bachelor of Computer Science (B.CS)** — Sebelas Maret University (UNS), Surakarta, Indonesia (2020 - 2024)
+
+## Featured Projects
+- [Setalip Mono](https://github.com/Drithh/setalip-mono): Custom monospaced font tailored for programming and tabular data.
+- [Wisdoor Web](https://github.com/Drithh/wisdoor-web): Architectural door catalog and company profile platform.
+- [E-Commerce Website](https://github.com/Drithh/e-commerce-website): Full-stack electronic store with cart, payments, and admin order tracking.
+- [Weather Bayes](https://github.com/Drithh/weather-bayes): Weather prediction engine using Naive Bayes probabilistic algorithms.
+- [Invoice Website](https://github.com/Drithh/invoice-website): Automated billing and invoice generator with PDF downloads.
+- [Car Rental](https://github.com/Drithh/car-rental): Vehicle fleet reservation platform with real-time schedule tracking.
+- [Turing Machine Simulator](https://github.com/Drithh/turing-machine): Deterministic Turing machine visualizer and tape runner.
+- [Emotion Prediction](https://github.com/Drithh/emotion-prediction): Natural language emotion classification model.
+- [Authentication App](https://github.com/Drithh/authentication-app): Secure authentication service with JWT and session invalidation.
