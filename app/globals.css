@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 @font-face {
   font-family: "GT Walsheim";
@@ -112,6 +111,6 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased selection:bg-foreground selection:text-background;
+    @apply bg-background text-foreground selection:bg-foreground selection:text-background antialiased;
   }
 }

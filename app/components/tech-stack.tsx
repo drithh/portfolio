@@ -12,7 +12,7 @@ import {
   SiGit,
   SiTailwindcss,
   SiHtml5,
-  SiCss3,
+  SiCss,
   SiPython,
   SiFastapi,
   SiGo,
@@ -27,11 +27,10 @@ import {
   SiGraphql,
   SiElasticsearch,
   SiVite,
-  SiOpenai,
 } from "react-icons/si";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { IoLogoNodejs } from "react-icons/io5";
-import { RiNextjsLine, RiVuejsLine } from "react-icons/ri";
+import { RiNextjsLine, RiOpenaiLine, RiVuejsLine } from "react-icons/ri";
 import { TbBrandGoogle } from "react-icons/tb";
 
 interface TechItem {
@@ -102,7 +101,7 @@ const techCategories: TechCategory[] = [
       { name: "Google Cloud Platform", icon: <DiGoogleCloudPlatform /> },
       { name: "Git", icon: <SiGit /> },
       { name: "Puppeteer", icon: <SiPuppeteer /> },
-      { name: "OpenAI / LLMs", icon: <SiOpenai /> },
+      { name: "OpenAI / LLMs", icon: <RiOpenaiLine /> },
     ],
   },
 ];
@@ -111,13 +110,13 @@ export const TechStack = () => {
   return (
     <section id="stack" className="flex flex-col gap-8">
       <div className="flex flex-col gap-2">
-        <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+        <div className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
           [02] // Technical Repertoire
         </div>
-        <h2 className="font-title text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h2 className="font-title text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
           Stack
         </h2>
-        <p className="max-w-2xl text-base text-muted-foreground">
+        <p className="text-muted-foreground max-w-2xl text-base">
           Here are few technologies that are cup of my{" "}
           <span className="line-through">coffee</span> tea.
         </p>
@@ -135,18 +134,18 @@ export const TechStack = () => {
               delay: catIndex * 0.08,
               ease: [0.21, 0.47, 0.32, 0.98],
             }}
-            className="group flex flex-col justify-between rounded-xl border border-border/70 bg-card/40 p-5 transition-all duration-200 hover:border-foreground/20 hover:bg-card/70"
+            className="group border-border/70 bg-card/40 hover:border-foreground/20 hover:bg-card/70 flex flex-col justify-between rounded-xl border p-5 transition-all duration-200"
           >
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-muted-foreground">
+                <span className="text-muted-foreground font-mono text-xs">
                   0{catIndex + 1}.
                 </span>
               </div>
-              <h3 className="font-title text-lg font-semibold tracking-tight text-foreground">
+              <h3 className="font-title text-foreground text-lg font-semibold tracking-tight">
                 {category.title}
               </h3>
-              <p className="text-xs leading-relaxed text-muted-foreground">
+              <p className="text-muted-foreground text-xs leading-relaxed">
                 {category.description}
               </p>
             </div>
@@ -155,9 +154,9 @@ export const TechStack = () => {
               {category.items.map((item) => (
                 <div
                   key={item.name}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-border/60 bg-background/60 px-2.5 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                  className="border-border/60 bg-background/60 text-secondary-foreground hover:border-foreground/30 hover:text-foreground inline-flex items-center gap-1.5 rounded-md border px-2.5 py-1 text-xs font-medium transition-colors"
                 >
-                  <span className="text-sm text-foreground/70">
+                  <span className="text-foreground/70 text-sm">
                     {item.icon}
                   </span>
                   <span>{item.name}</span>

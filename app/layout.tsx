@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-/* eslint-disable @next/next/no-head-element */
 export default function RootLayout({
   children,
 }: {

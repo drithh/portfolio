@@ -25,12 +25,12 @@ export const DarkModeToggle: React.FC<Props> = ({
   className,
 }) => {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
+  const mounted = React.useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const uniqueId = React.useId();
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const isDark = theme === "dark";
 

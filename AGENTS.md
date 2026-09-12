@@ -269,11 +269,11 @@ When adding a new repository to featured projects:
 
 ## Runtime/Tooling Preferences
 
-- **Primary Package Manager**: **pnpm** (pinned in `package.json` to `pnpm@9.12.3`). Primary lockfile is `pnpm-lock.yaml`.
+- **Primary Package Manager**: **pnpm** (pinned in `package.json` to `pnpm@11.26.0`). Primary lockfile is `pnpm-lock.yaml`.
 - **Secondary / Build Runtime**: **Bun** (`bun.lock` is present; `pnpm predeploy` calls `bun run build`).
-- **Node.js Compatibility**: Requires Node.js $\ge 18.18.0$ (Next.js 15 baseline). `@types/node` is set to `^22.14.1`.
-- **TypeScript**: TypeScript 5 (`^5.4.2`). Strict mode enabled. Target is `es5`, module resolution is `node`.
-- **UI Framework**: React 19 (`^19.0.0`) and Next.js 15 (`^15.0.0`).
+- **Node.js Compatibility**: Requires Node.js $\ge 18.18.0$. `@types/node` is set to `^22.20.2`.
+- **TypeScript**: TypeScript 6 (`^6.0.3`). Strict mode enabled. Target is `es2022`, module resolution is `bundler`.
+- **UI Framework**: React 19 (`^19.3.0`) and Next.js 16 (`^16.3.5`).
 - **Icons**: Use `react-icons` (`react-icons/si`, `react-icons/io5`, `react-icons/sl`, `react-icons/fi`, etc.) for icons across sections. Avoid adding duplicate icon packages.
 
 ---
@@ -295,7 +295,7 @@ Every contribution, modification, or automated edit MUST pass the following thre
    Ensures zero type errors under TypeScript strict mode.
 2. **ESLint Linting**:
    ```bash
-   pnpm exec next lint
+   pnpm run lint
    ```
    Validates code against `next/core-web-vitals`, React hooks rules, and accessibility standards.
 3. **Production Build**:

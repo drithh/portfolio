@@ -13,17 +13,17 @@ export const Item = (props: ItemProps) => {
     <button
       onClick={onClick}
       className={`${
-        item === "experience" ? "hidden ty:inline-flex" : "inline-flex"
+        item === "experience" ? "ty:inline-flex hidden" : "inline-flex"
       } relative z-0 items-center rounded-full px-3 py-1 font-sans text-xs font-medium transition-colors sm:px-3.5 sm:py-1.5 sm:text-sm ${
         isSelected
-          ? "font-semibold text-foreground"
+          ? "text-foreground font-semibold"
           : "text-muted-foreground hover:text-foreground"
       }`}
     >
       {isSelected && (
         <motion.div
           layoutId="selected"
-          className="shadow-xs absolute inset-0 -z-10 rounded-full border border-border/70 bg-background"
+          className="border-border/70 bg-background absolute inset-0 -z-10 rounded-full border shadow-xs"
           initial={false}
           transition={spring}
         />
@@ -37,4 +37,4 @@ const spring = {
   type: "spring",
   stiffness: 500,
   damping: 30,
-};
+} as const;
