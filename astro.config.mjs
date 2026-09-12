@@ -5,6 +5,9 @@ import icon from "astro-icon";
 export default defineConfig({
   output: "static",
   site: "https://adriel.id",
+  build: {
+    inlineStylesheets: "always",
+  },
   vite: {
     plugins: [tailwindcss()],
   },
